@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://gustomucho.github.io/clementine/sitemap.xml
