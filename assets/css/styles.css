@@ -1,5 +1,4 @@
 :root{
-  /* Palette */
   --bg: #FAF2E4;
   --red: #EC423D;
   --brown: #490D0B;
@@ -7,8 +6,6 @@
   --yellow: #FFF33A;
 
   --ink: var(--brown);
-  --muted: rgba(73,13,11,.78);
-
   --container: 1120px;
   --shadow: 0 10px 30px rgba(0,0,0,.08);
 
@@ -21,11 +18,26 @@ html, body{ height: 100%; }
 
 body{
   margin: 0;
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
-  font-weight: 400;
   line-height: 1.6;
-  background: var(--bg);
+
+  /* bande diagonale douce */
+  background-image:
+    linear-gradient(115deg,
+      rgba(255,255,255,.00) 0%,
+      rgba(255,255,255,.00) 18%,
+      rgba(255,255,255,.28) 18%,
+      rgba(255,255,255,.28) 34%,
+      rgba(255,255,255,.00) 34%,
+      rgba(255,255,255,.00) 52%,
+      rgba(255,255,255,.22) 52%,
+      rgba(255,255,255,.22) 68%,
+      rgba(255,255,255,.00) 68%,
+      rgba(255,255,255,.00) 100%
+    );
+  background-attachment: fixed;
 }
 
 img{ max-width: 100%; height: auto; display: block; border: 0; }
@@ -40,31 +52,16 @@ a:hover{ text-decoration: underline; }
 /* Accessibilité */
 .sr-only{
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
   overflow: hidden;
   clip: rect(0,0,0,0);
   white-space: nowrap;
   border: 0;
 }
 
-.skip-link{
-  position: absolute;
-  left: -999px;
-  top: 10px;
-  background: #fff;
-  color: #000;
-  border: 1px solid rgba(0,0,0,.4);
-  border-radius: 10px;
-  padding: 10px 12px;
-  z-index: 9999;
-}
-.skip-link:focus{ left: 12px; }
-
-/* ========== Typo ========== */
-.h1,.h2,.h3{
+/* Typo */
+.h1,.h2{
   font-family: var(--font-title);
   font-style: italic;
   letter-spacing: .02em;
@@ -73,24 +70,24 @@ a:hover{ text-decoration: underline; }
 
 .h1{
   font-weight: 700;
-  font-size: clamp(34px, 4.2vw, 64px);
+  font-size: clamp(40px, 4.6vw, 72px);
   line-height: 1.02;
-  color: rgba(183,218,217,.98);
+  color: var(--teal);
   text-shadow: 0 1px 0 rgba(255,255,255,.35);
 }
 
 .h2{
   font-weight: 700;
-  font-size: 26px;
+  font-size: 28px;
   line-height: 1.1;
   color: var(--red);
 }
 
 .lead{
   font-weight: 100;
-  font-size: 18px;
-  color: rgba(73,13,11,.80);
-  margin: 0 0 14px 0;
+  font-size: 20px;
+  color: rgba(73,13,11,.75);
+  margin: 0 0 16px 0;
 }
 
 .text{
@@ -98,59 +95,9 @@ a:hover{ text-decoration: underline; }
   color: rgba(73,13,11,.88);
 }
 
-.section{ padding: 32px 0 70px 0; }
+.section{ padding: 28px 0 60px 0; }
 
-/* ========= Surlignage “vraiment plein” =========
-   Objectif : le texte est complètement sur le jaune (haut + bas),
-   et déborde un peu sur les côtés comme le brouillon.
-*/
-.hl{
-  position: relative;
-  display: inline;
-  padding: .26em .55em;            /* + grand = déborde plus */
-  line-height: 2.05;               /* + haut : plus de “jaune” */
-  border-radius: 18px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
-.hl::before{
-  content:"";
-  position:absolute;
-  left: -0.45em;                   /* déborde plus à gauche */
-  right: -0.45em;                  /* déborde plus à droite */
-  top: 50%;
-  transform: translateY(-50%);
-  height: 2.05em;                  /* IMPORTANT : plus haut que le texte */
-  background: rgba(255,243,58,.98);
-  border-radius: 22px;
-  z-index: -1;
-}
-
-/* Couleur du texte sur le jaune = teal (#B7DAD9) */
-.hl-teal{
-  color: var(--teal);
-  text-shadow: 0 1px 0 rgba(255,255,255,.22);
-}
-
-/* ========== Traits “griffonnés” ========== */
-.scribbles{
-  margin: 14px 0 18px 0;
-  display: grid;
-  gap: 9px;
-  max-width: 420px;
-}
-.scribble-line{
-  height: 3px;
-  background: rgba(73,13,11,.88);
-  border-radius: 999px;
-  transform: rotate(-1deg);
-}
-.scribble-line:nth-child(2){ width: 94%; opacity: .9; transform: rotate(1deg); }
-.scribble-line:nth-child(3){ width: 80%; opacity: .85; transform: rotate(-.6deg); }
-.scribble-line:nth-child(4){ width: 88%; opacity: .8; transform: rotate(.6deg); }
-
-/* ========== Header full width ========== */
+/* Header full width */
 .site-header{
   position: sticky;
   top: 0;
@@ -169,7 +116,7 @@ a:hover{ text-decoration: underline; }
   padding: 14px 0;
 }
 
-/* Logo contraint (évite le logo géant) */
+/* Logo */
 .brand{
   display: inline-flex;
   align-items: center;
@@ -182,10 +129,7 @@ a:hover{ text-decoration: underline; }
   object-fit: contain;
 }
 @media (max-width: 860px){
-  .brand-logo{
-    height: 38px;
-    max-width: 150px;
-  }
+  .brand-logo{ height: 38px; max-width: 150px; }
 }
 
 /* Nav */
@@ -206,10 +150,7 @@ a:hover{ text-decoration: underline; }
   text-decoration: none;
   background: rgba(255,255,255,.35);
 }
-.nav-link[aria-disabled="true"]{
-  opacity: .55;
-  cursor: not-allowed;
-}
+.nav-link[aria-disabled="true"]{ opacity: .55; cursor: not-allowed; }
 
 /* Mobile menu */
 .nav-toggle{
@@ -217,15 +158,13 @@ a:hover{ text-decoration: underline; }
   border: 1px solid rgba(73,13,11,.35);
   background: rgba(255,255,255,.45);
   border-radius: 12px;
-  width: 44px;
-  height: 44px;
+  width: 44px; height: 44px;
   cursor: pointer;
   box-shadow: var(--shadow);
 }
 .nav-toggle-bars{
   display: block;
-  width: 18px;
-  height: 2px;
+  width: 18px; height: 2px;
   background: var(--brown);
   margin: 0 auto;
   position: relative;
@@ -233,18 +172,16 @@ a:hover{ text-decoration: underline; }
 .nav-toggle-bars::before,
 .nav-toggle-bars::after{
   content:"";
-  position: absolute;
-  left: 0;
-  width: 18px;
-  height: 2px;
+  position:absolute;
+  left:0;
+  width:18px; height:2px;
   background: var(--brown);
 }
-.nav-toggle-bars::before{ top: -6px; }
-.nav-toggle-bars::after{ top: 6px; }
+.nav-toggle-bars::before{ top:-6px; }
+.nav-toggle-bars::after{ top:6px; }
 
 @media (max-width: 860px){
   .nav-toggle{ display: inline-block; }
-
   .site-nav{
     position: absolute;
     right: 20px;
@@ -264,7 +201,7 @@ a:hover{ text-decoration: underline; }
   .site-nav.is-open{ display: flex; }
 }
 
-/* ========== Boutons rouges rectangulaires ========== */
+/* Boutons rouges */
 .btn{
   display: inline-flex;
   align-items: center;
@@ -287,88 +224,75 @@ a:hover{ text-decoration: underline; }
   text-decoration: none;
 }
 .btn:active{ transform: translateY(0); }
+.btn-small{ padding: 11px 14px; font-size: 13px; }
+.btn[aria-disabled="true"]{ opacity: .55; cursor: not-allowed; pointer-events: none; }
 
-.btn-small{
-  padding: 11px 14px;
-  font-size: 13px;
-}
-.btn[aria-disabled="true"]{
-  opacity: .55;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-/* ========== Accueil desktop : proche du brouillon ========== */
-.home{
-  position: relative;
-  padding-top: 12px;
-  min-height: 520px;
-}
-
-/* Grand bandeau diagonal derrière les 3 blocs (plus large, plus visible) */
-.home::before{
-  content:"";
-  position:absolute;
-  left: 50%;
-  top: 140px;
-  transform: translateX(-50%) rotate(-12deg);
-  width: 1600px;
-  height: 360px;
-  background: rgba(255,255,255,.32);
-  border-radius: 50px;
-  z-index: 0;
-}
-
-/* Zone titres (comme ton brouillon : gauche + droite) */
-.home-top{
-  position: relative;
-  z-index: 1;
+/* Traits griffonnés */
+.scribbles{
+  margin: 14px 0 18px 0;
   display: grid;
-  grid-template-columns: 1.25fr .95fr;
-  gap: 40px;
+  gap: 9px;
+  max-width: 520px;
+}
+.scribble-line{
+  height: 3px;
+  background: rgba(73,13,11,.88);
+  border-radius: 999px;
+  transform: rotate(-1deg);
+}
+.scribble-line:nth-child(2){ width: 94%; opacity: .9; transform: rotate(1deg); }
+.scribble-line:nth-child(3){ width: 80%; opacity: .85; transform: rotate(-.6deg); }
+.scribble-line:nth-child(4){ width: 88%; opacity: .8; transform: rotate(.6deg); }
+
+/* ====== NOUVEAU : “capsule” jaune (vrai fond) ====== */
+.yellow-pill{
+  display: inline-block;            /* fond qui suit le texte */
+  background: var(--yellow);
+  color: var(--teal);               /* texte demandé */
+  padding: 10px 14px;               /* haut/bas = bien “plein” */
+  border-radius: 999px;
+  line-height: 1.35;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  max-width: 100%;
+}
+
+/* Pour les cas très longs : on permet le retour à la ligne */
+.yellow-pill-wrap{
+  display: inline;                  /* on garde la forme mais multi-lignes */
+  background: var(--yellow);
+  color: var(--teal);
+  padding: 10px 14px;
+  border-radius: 24px;              /* un peu moins rond si ça wrap */
+  line-height: 1.6;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ====== Layout Accueil ====== */
+.home-title{
+  margin: 22px 0 24px 0;
+}
+
+.two-col{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 64px;
   align-items: start;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-.home-top-left .h1{
-  margin-top: 18px;
+.one-col{
+  margin-top: 70px;
+  max-width: 720px;
 }
 
-.home-top-right .h1{
-  text-align: left;
-  margin-top: 18px;
-}
-
-/* 3 colonnes */
-.home-grid{
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 54px;
-  padding-top: 6px;
-}
-
-.home-card{
-  max-width: 360px;
-}
-
-/* Petits ajustements pour que ça “respire” comme ton dessin */
-.home-card .h2{ margin-bottom: 12px; }
-.home-card .lead{ margin-bottom: 16px; }
-
-/* Responsive */
 @media (max-width: 980px){
-  .home::before{ display:none; }
-  .home-top{ grid-template-columns: 1fr; }
-  .home-grid{
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  .home-card{ max-width: 720px; }
+  .two-col{ grid-template-columns: 1fr; gap: 34px; }
+  .one-col{ margin-top: 40px; }
 }
 
-/* ========== Footer ========== */
+/* Footer */
 .site-footer{
   padding: 26px 0 40px 0;
   border-top: 1px solid rgba(73,13,11,.16);
