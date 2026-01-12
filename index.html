@@ -1,47 +1,183 @@
-(function () {
-  const navToggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector("#site-nav");
-  const year = document.querySelector("#year");
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  if (year) year.textContent = new Date().getFullYear();
+  <title>Souvenirs illustrés & sonores — Graphiste, illustratrice & podcast</title>
+  <meta name="description" content="Gardez une trace de vos souvenirs : pour les yeux ou pour les oreilles. Souvenirs illustrés sur mesure et souvenirs sonores (podcast privé), par une graphiste illustratrice." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://gustomucho.github.io/clementine/" />
 
-  if (navToggle && nav) {
-    function setExpanded(isOpen) {
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      nav.classList.toggle("is-open", isOpen);
-    }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Souvenirs illustrés & sonores — Graphiste, illustratrice & podcast" />
+  <meta property="og:description" content="Souvenirs sur mesure : illustration (pour les yeux) et podcast privé (pour les oreilles)." />
+  <meta property="og:url" content="https://gustomucho.github.io/clementine/" />
 
-    navToggle.addEventListener("click", () => {
-      const isOpen = nav.classList.contains("is-open");
-      setExpanded(!isOpen);
-    });
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Playfair Display SC (700) + Raleway (100,400) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;400&display=swap" rel="stylesheet">
 
-    // Fermer le menu si on clique ailleurs (mobile)
-    document.addEventListener("click", (e) => {
-      const isOpen = nav.classList.contains("is-open");
-      if (!isOpen) return;
-      if (nav.contains(e.target) || navToggle.contains(e.target)) return;
-      setExpanded(false);
-    });
+  <link rel="stylesheet" href="assets/css/styles.css" />
 
-    // Fermer au resize (évite états bizarres)
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 860) setExpanded(false);
-    });
+  <!-- JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Graphiste illustratrice & podcast",
+    "description":"Souvenirs illustrés sur mesure et souvenirs sonores (podcast privé).",
+    "url":"https://gustomucho.github.io/clementine/"
   }
+  </script>
+</head>
 
-  // Toggle "+" accordéon (Accueil)
-  document.querySelectorAll(".toggle-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = btn.getAttribute("data-toggle");
-      const content = document.getElementById(id);
-      if (!content) return;
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-      const isOpen = content.classList.contains("open");
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Retour à l'accueil">
+        <span class="brand-mark" aria-hidden="true">✿</span>
+        <span class="brand-name">Clémentine</span>
+      </a>
 
-      content.classList.toggle("open");
-      btn.textContent = isOpen ? "+" : "–";
-      btn.setAttribute("aria-expanded", String(!isOpen));
-    });
-  });
-})();
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
+        <a class="nav-link is-active" href="index.html">Accueil</a>
+        <a class="nav-link" href="souvenirs-illustres.html">Souvenirs illustrés</a>
+        <a class="nav-link" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">Souvenirs sonores</a>
+        <a class="nav-link" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">Graphisme & illustrations</a>
+        <a class="nav-link" href="shop.html" aria-disabled="true" tabindex="-1">Shop</a>
+        <a class="nav-link" href="contact.html" aria-disabled="true" tabindex="-1">Contact · À propos</a>
+        <a class="nav-link" href="mentions-legales.html" aria-disabled="true" tabindex="-1">Mentions légales</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <!-- ACCUEIL: 3 COLONNES -->
+    <section class="section">
+      <div class="container">
+        <h1 class="h1 center-title">Gardez une trace de vos souvenirs :</h1>
+
+        <div class="three-columns">
+          <!-- COLONNE 1 -->
+          <article class="card">
+            <h2 class="h2">pour les yeux</h2>
+
+            <p class="lead">
+              Des souvenirs et des dessins<br>
+              Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.
+            </p>
+
+            <button class="toggle-btn" type="button" data-toggle="eyes" aria-expanded="false" aria-controls="eyes">+</button>
+
+            <div class="toggle-content" id="eyes">
+              <p class="text">
+                Les souvenirs illustrés c’est une rencontre, un lieu, une habitude, un détail qui revient —
+                tout est dessiné sur mesure pour créer une composition unique.
+              </p>
+              <p class="text">
+                Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.
+              </p>
+            </div>
+
+            <a class="btn btn-primary btn-small" href="souvenirs-illustres.html">
+              Souvenirs illustrés pour les yeux <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <!-- COLONNE 2 -->
+          <article class="card card-tint">
+            <h2 class="h2">pour les oreilles</h2>
+
+            <p class="lead">
+              Une histoire ou juste une voix à capturer<br>
+              À raconter aujourd’hui, pour pouvoir l’écouter demain, pour soi et pour ceux qu’on aime.
+            </p>
+
+            <button class="toggle-btn" type="button" data-toggle="ears" aria-expanded="false" aria-controls="ears">+</button>
+
+            <div class="toggle-content" id="ears">
+              <p class="text">
+                Les souvenirs sonores permettent d’enregistrer une voix, une histoire, un moment de vie.
+              </p>
+              <p class="text">
+                On parle librement, sans pression, pour garder la voix de ceux qu’on aime ou le souvenir
+                d’une histoire et pouvoir la réécouter plus tard.
+              </p>
+              <p class="text">
+                Un souvenir intime à offrir ou à garder, pour aujourd’hui et pour demain.
+              </p>
+            </div>
+
+            <a class="btn btn-ghost btn-small" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">
+              Souvenirs sonores pour les oreilles <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+          <!-- COLONNE 3 -->
+          <article class="card">
+            <h2 class="h2">Donnez forme et couleurs à vos projets.</h2>
+
+            <p class="lead">
+              Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
+              fresques murales ou encore illustrations saisonnières pour vitrines.
+            </p>
+
+            <button class="toggle-btn" type="button" data-toggle="design" aria-expanded="false" aria-controls="design">+</button>
+
+            <div class="toggle-content" id="design">
+              <p class="text">
+                Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente
+                à vos projets, en devenir ou déjà existants.
+              </p>
+            </div>
+
+            <a class="btn btn-ghost btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">
+              Graphisme & illustration <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA simple -->
+    <section class="section">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2 class="h2">Envie d’offrir (ou de garder) un souvenir ?</h2>
+            <p class="text">
+              Dis-moi ce que tu veux raconter : une personne, un endroit, une période, un détail.
+              On construit ensemble un souvenir à garder tout près.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="contact.html" aria-disabled="true" tabindex="-1">
+            Me contacter <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-text">© <span id="year"></span> Clémentine — Graphiste · Illustratrice · Podcast</p>
+      <div class="footer-links">
+        <a href="mentions-legales.html" aria-disabled="true" tabindex="-1">Mentions légales</a>
+        <a href="mentions-legales.html" aria-disabled="true" tabindex="-1">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
