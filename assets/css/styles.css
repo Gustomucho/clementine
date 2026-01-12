@@ -208,12 +208,13 @@ a:hover{ text-decoration: underline; }
   justify-content: center;
 
   padding: 12px 16px;
-  border-radius: 14px;
+  border-radius: 0;              /* UPDATED: coins anguleux */
   border: 2px solid var(--red);
   background: transparent;
 
   color: var(--red);
   font-size: 14px;
+  font-weight: 500;              /* UPDATED: medium 500 */
   line-height: 1;
   cursor: pointer;
   text-decoration: none;
@@ -244,29 +245,31 @@ a:hover{ text-decoration: underline; }
 .scribble-line:nth-child(3){ width: 80%; opacity: .85; transform: rotate(-.6deg); }
 .scribble-line:nth-child(4){ width: 88%; opacity: .8; transform: rotate(.6deg); }
 
-/* ====== NOUVEAU : “capsule” jaune (vrai fond) ====== */
+/* ====== “capsule” jaune (vrai fond) ====== */
 .yellow-pill{
-  display: inline-block;            /* fond qui suit le texte */
+  display: inline-block;
   background: var(--yellow);
-  color: var(--teal);               /* texte demandé */
-  padding: 10px 14px;               /* haut/bas = bien “plein” */
+  color: var(--teal);
+  padding: 10px 14px;
   border-radius: 999px;
   line-height: 1.35;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   max-width: 100%;
+  font-weight: 300;              /* UPDATED: Raleway light 300 */
 }
 
 /* Pour les cas très longs : on permet le retour à la ligne */
 .yellow-pill-wrap{
-  display: inline;                  /* on garde la forme mais multi-lignes */
+  display: inline;
   background: var(--yellow);
   color: var(--teal);
   padding: 10px 14px;
-  border-radius: 24px;              /* un peu moins rond si ça wrap */
+  border-radius: 24px;
   line-height: 1.6;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+  font-weight: 300;              /* UPDATED: Raleway light 300 */
 }
 
 /* ====== Layout Accueil ====== */
