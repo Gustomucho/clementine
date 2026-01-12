@@ -7,18 +7,15 @@
   <title>Clémentine Lénelle — Souvenirs illustrés & sonores · Graphiste & illustratrice</title>
   <meta name="description" content="Gardez une trace de vos souvenirs : pour les yeux ou pour les oreilles. Souvenirs illustrés sur mesure et souvenirs sonores (podcast privé), par Clémentine Lénelle." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://gustomucho.github.io/clementine/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=1" />
 </head>
 
 <body>
-  <a class="skip-link" href="#contenu">Aller au contenu</a>
-
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Retour à l'accueil">
@@ -43,28 +40,22 @@
     </div>
   </header>
 
-  <main id="contenu">
-    <section class="section home">
+  <main>
+    <section class="section">
       <div class="container">
 
-        <div class="home-top">
-          <div class="home-top-left">
-            <h1 class="h1">Gardez une trace de vos souvenirs</h1>
-          </div>
+        <!-- H1 seul, pas de sous-titre -->
+        <h1 class="h1 home-title">Gardez une trace de vos souvenirs</h1>
 
-          <div class="home-top-right">
-            <h1 class="h1">Donnez forme et couleurs à vos projets</h1>
-          </div>
-        </div>
+        <!-- 2 colonnes -->
+        <div class="two-col">
 
-        <div class="home-grid">
-
-          <!-- Colonne 1 -->
-          <article class="home-card" aria-label="Souvenirs illustrés">
+          <!-- Yeux -->
+          <article>
             <h2 class="h2">pour les yeux</h2>
 
             <p class="lead">
-              <span class="hl hl-teal">
+              <span class="yellow-pill-wrap">
                 Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.
               </span>
             </p>
@@ -87,12 +78,14 @@
             <a class="btn btn-small" href="souvenirs-illustres.html">Souvenirs illustrés</a>
           </article>
 
-          <!-- Colonne 2 -->
-          <article class="home-card" aria-label="Souvenirs sonores">
+          <!-- Oreilles -->
+          <article>
             <h2 class="h2">pour les oreilles</h2>
 
             <p class="lead">
-              <span class="hl hl-teal">Une histoire, ou juste une voix à capturer.</span>
+              <span class="yellow-pill">
+                Une histoire, ou juste une voix à capturer.
+              </span>
             </p>
 
             <div class="scribbles" aria-hidden="true">
@@ -113,39 +106,38 @@
             <a class="btn btn-small" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">Souvenirs sonores</a>
           </article>
 
-          <!-- Colonne 3 -->
-          <article class="home-card" aria-label="Graphisme et illustration">
-            <h2 class="h2" style="color: rgba(183,218,217,.98); text-shadow: 0 1px 0 rgba(255,255,255,.35);">
-              Donnez forme et couleurs à vos projets
-            </h2>
-
-            <p class="lead">
-              <span class="hl hl-teal">
-                Je mets mon regard de graphiste et d’illustratrice au service de vos projets.
-              </span>
-            </p>
-
-            <div class="scribbles" aria-hidden="true">
-              <div class="scribble-line"></div>
-              <div class="scribble-line"></div>
-              <div class="scribble-line"></div>
-              <div class="scribble-line"></div>
-            </div>
-
-            <p class="text">
-              Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
-              fresques murales ou illustrations saisonnières pour vitrines.
-            </p>
-            <p class="text">
-              Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente.
-            </p>
-
-            <a class="btn btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">
-              Graphisme & illustration
-            </a>
-          </article>
-
         </div>
+
+        <!-- Bloc projets en dessous -->
+        <section class="one-col" aria-label="Graphisme et illustration">
+          <h2 class="h1" style="margin-bottom:14px;">Donnez forme et couleurs à vos projets</h2>
+
+          <p class="lead">
+            <span class="yellow-pill-wrap">
+              Je mets mon regard de graphiste et d’illustratrice au service de vos projets.
+            </span>
+          </p>
+
+          <div class="scribbles" aria-hidden="true">
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+          </div>
+
+          <p class="text">
+            Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
+            fresques murales ou illustrations saisonnières pour vitrines.
+          </p>
+          <p class="text">
+            Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente.
+          </p>
+
+          <a class="btn btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">
+            Graphisme & illustration
+          </a>
+        </section>
+
       </div>
     </section>
   </main>
