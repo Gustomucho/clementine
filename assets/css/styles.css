@@ -70,7 +70,7 @@ a:hover{ text-decoration: underline; }
 
 .h1{
   font-weight: 700;
-  font-size: clamp(40px, 4.6vw, 72px);
+  font-size: clamp(32px, 3.6vw, 56px);
   line-height: 1.02;
   color: var(--teal);
   text-shadow: 0 1px 0 rgba(255,255,255,.35);
