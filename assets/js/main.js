@@ -7,41 +7,26 @@
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector("#site-nav");
 
-  if (navToggle && nav) {
-    function setExpanded(isOpen) {
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      nav.classList.toggle("is-open", isOpen);
-    }
+  if (!navToggle || !nav) return;
 
-    navToggle.addEventListener("click", () => {
-      const isOpen = nav.classList.contains("is-open");
-      setExpanded(!isOpen);
-    });
-
-    document.addEventListener("click", (e) => {
-      const isOpen = nav.classList.contains("is-open");
-      if (!isOpen) return;
-      if (nav.contains(e.target) || navToggle.contains(e.target)) return;
-      setExpanded(false);
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 860) setExpanded(false);
-    });
+  function setExpanded(isOpen) {
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    nav.classList.toggle("is-open", isOpen);
   }
 
-  // Toggle "+" (Accueil)
-  document.querySelectorAll(".toggle-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const id = btn.getAttribute("data-toggle");
-      const content = document.getElementById(id);
-      if (!content) return;
+  navToggle.addEventListener("click", () => {
+    const isOpen = nav.classList.contains("is-open");
+    setExpanded(!isOpen);
+  });
 
-      const isOpen = content.classList.contains("open");
-      content.classList.toggle("open");
+  document.addEventListener("click", (e) => {
+    const isOpen = nav.classList.contains("is-open");
+    if (!isOpen) return;
+    if (nav.contains(e.target) || navToggle.contains(e.target)) return;
+    setExpanded(false);
+  });
 
-      btn.textContent = isOpen ? "+" : "–";
-      btn.setAttribute("aria-expanded", String(!isOpen));
-    });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 860) setExpanded(false);
   });
 })();
