@@ -6,7 +6,6 @@
   // Mobile nav
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector("#site-nav");
-
   if (!navToggle || !nav) return;
 
   function setExpanded(isOpen) {
