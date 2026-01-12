@@ -1,1 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://gustomucho.github.io/clementine/</loc>
+  </url>
+  <url>
+    <loc>https://gustomucho.github.io/clementine/souvenirs-illustres.html</loc>
+  </url>
 
+  <!-- pages à venir (quand tu les créeras, enlève les commentaires et ajoute les fichiers) -->
+  <!--
+  <url><loc>https://gustomucho.github.io/clementine/souvenirs-sonores.html</loc></url>
+  <url><loc>https://gustomucho.github.io/clementine/graphisme-illustrations.html</loc></url>
+  <url><loc>https://gustomucho.github.io/clementine/shop.html</loc></url>
+  <url><loc>https://gustomucho.github.io/clementine/contact.html</loc></url>
+  <url><loc>https://gustomucho.github.io/clementine/mentions-legales.html</loc></url>
+  -->
+</urlset>
