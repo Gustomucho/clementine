@@ -38,9 +38,7 @@
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Retour à l'accueil">
         <picture>
-          <!-- mobile : logo court -->
           <source media="(max-width: 860px)" srcset="assets/img/logo-c.png">
-          <!-- desktop : logo long -->
           <img class="brand-logo" src="assets/img/logo-clementine-lenelle.png" alt="Clémentine Lénelle">
         </picture>
         <span class="sr-only">Clémentine Lénelle</span>
@@ -65,101 +63,122 @@
   <main id="contenu">
     <section class="section">
       <div class="container">
-        <h1 class="h1 center-title">Gardez une trace de vos souvenirs :</h1>
 
-        <div class="three-columns">
-          <article class="card">
-            <h2 class="h2">pour les yeux</h2>
-
-            <p class="lead">
-              Des souvenirs et des dessins<br>
-              Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.
-            </p>
-
-            <button class="toggle-btn" type="button" data-toggle="eyes" aria-expanded="false" aria-controls="eyes">+</button>
-
-            <div class="toggle-content" id="eyes">
-              <p class="text">
-                Les souvenirs illustrés c’est une rencontre, un lieu, une habitude, un détail qui revient —
-                tout est dessiné sur mesure pour créer une composition unique.
-              </p>
-              <p class="text">
-                Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.
-              </p>
-            </div>
-
-            <a class="btn btn-primary btn-small" href="souvenirs-illustres.html">
-              Souvenirs illustrés pour les yeux <span aria-hidden="true">→</span>
-            </a>
-          </article>
-
-          <article class="card card-tint">
-            <h2 class="h2">pour les oreilles</h2>
-
-            <p class="lead">
-              Une histoire ou juste une voix à capturer<br>
-              À raconter aujourd’hui, pour pouvoir l’écouter demain, pour soi et pour ceux qu’on aime.
-            </p>
-
-            <button class="toggle-btn" type="button" data-toggle="ears" aria-expanded="false" aria-controls="ears">+</button>
-
-            <div class="toggle-content" id="ears">
-              <p class="text">
-                Les souvenirs sonores permettent d’enregistrer une voix, une histoire, un moment de vie.
-              </p>
-              <p class="text">
-                On parle librement, sans pression, pour garder la voix de ceux qu’on aime ou le souvenir
-                d’une histoire et pouvoir la réécouter plus tard.
-              </p>
-              <p class="text">
-                Un souvenir intime à offrir ou à garder, pour aujourd’hui et pour demain.
-              </p>
-            </div>
-
-            <a class="btn btn-ghost btn-small" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">
-              Souvenirs sonores pour les oreilles <span aria-hidden="true">→</span>
-            </a>
-          </article>
-
-          <article class="card">
-            <h2 class="h2">Donnez forme et couleurs à vos projets.</h2>
-
-            <p class="lead">
-              Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
-              fresques murales ou encore illustrations saisonnières pour vitrines.
-            </p>
-
-            <button class="toggle-btn" type="button" data-toggle="design" aria-expanded="false" aria-controls="design">+</button>
-
-            <div class="toggle-content" id="design">
-              <p class="text">
-                Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente
-                à vos projets, en devenir ou déjà existants.
-              </p>
-            </div>
-
-            <a class="btn btn-ghost btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">
-              Graphisme & illustration <span aria-hidden="true">→</span>
-            </a>
-          </article>
+        <div class="home-title-row">
+          <h1 class="h1">Gardez une trace<br>de vos souvenirs</h1>
+          <div class="home-title-icons" aria-hidden="true">
+            <div class="icon-scribble"></div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="cta">
-          <div>
-            <h2 class="h2">Envie d’offrir (ou de garder) un souvenir ?</h2>
+        <!-- Bloc 1 -->
+        <article class="block" aria-label="Souvenirs illustrés">
+          <h2 class="h2">pour les yeux</h2>
+
+          <p class="lead">
+            Des souvenirs et des dessins<br>
+            <span class="highlight">Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.</span>
+          </p>
+
+          <div class="scribbles" aria-hidden="true">
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+          </div>
+
+          <div class="toggle-row">
+            <button class="toggle-btn" type="button" data-toggle="eyes" aria-expanded="false" aria-controls="eyes">+</button>
+            <span class="text" style="margin:0;">En savoir plus</span>
+          </div>
+
+          <div class="toggle-content" id="eyes">
             <p class="text">
-              Dis-moi ce que tu veux raconter : une personne, un endroit, une période, un détail.
-              On construit ensemble un souvenir à garder tout près.
+              Les souvenirs illustrés c’est une rencontre, un lieu, une habitude, un détail qui revient —
+              tout est dessiné sur mesure pour créer une composition unique.
+            </p>
+            <p class="text">
+              Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.
             </p>
           </div>
-          <a class="btn btn-primary" href="contact.html" aria-disabled="true" tabindex="-1">
-            Me contacter <span aria-hidden="true">→</span>
+
+          <a class="btn btn-small" href="souvenirs-illustres.html">Souvenirs illustrés</a>
+        </article>
+
+        <!-- Bloc 2 -->
+        <article class="block" aria-label="Souvenirs sonores">
+          <h2 class="h2">pour les oreilles</h2>
+
+          <p class="lead">
+            <span class="highlight">Une histoire ou juste une voix à capturer</span><br>
+            À raconter aujourd’hui, pour pouvoir l’écouter demain, pour soi et pour ceux qu’on aime.
+          </p>
+
+          <div class="scribbles" aria-hidden="true">
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+          </div>
+
+          <div class="toggle-row">
+            <button class="toggle-btn" type="button" data-toggle="ears" aria-expanded="false" aria-controls="ears">+</button>
+            <span class="text" style="margin:0;">En savoir plus</span>
+          </div>
+
+          <div class="toggle-content" id="ears">
+            <p class="text">
+              Les souvenirs sonores permettent d’enregistrer une voix, une histoire, un moment de vie.
+            </p>
+            <p class="text">
+              On parle librement, sans pression, pour garder la voix de ceux qu’on aime ou le souvenir
+              d’une histoire et pouvoir la réécouter plus tard.
+            </p>
+            <p class="text">
+              Un souvenir intime à offrir ou à garder, pour aujourd’hui et pour demain.
+            </p>
+          </div>
+
+          <a class="btn btn-small" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">Souvenirs sonores</a>
+        </article>
+
+        <!-- Bloc 3 -->
+        <article class="block" aria-label="Graphisme et illustration">
+          <h2 class="h2" style="color: rgba(183,218,217,.95); text-shadow: 0 1px 0 rgba(255,255,255,.35);">
+            Donnez forme et couleurs<br>à vos projets.
+          </h2>
+
+          <p class="lead">
+            <span class="highlight">
+              Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
+              fresques murales ou encore illustrations saisonnières pour vitrines.
+            </span>
+          </p>
+
+          <div class="scribbles" aria-hidden="true">
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+            <div class="scribble-line"></div>
+          </div>
+
+          <div class="toggle-row">
+            <button class="toggle-btn" type="button" data-toggle="design" aria-expanded="false" aria-controls="design">+</button>
+            <span class="text" style="margin:0;">En savoir plus</span>
+          </div>
+
+          <div class="toggle-content" id="design">
+            <p class="text">
+              Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente
+              à vos projets, en devenir ou déjà existants.
+            </p>
+          </div>
+
+          <a class="btn btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">
+            Graphisme & illustration
           </a>
-        </div>
+        </article>
+
       </div>
     </section>
   </main>
