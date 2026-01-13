@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Clémentine Lénelle — Souvenirs illustrés & souvenirs sonores</title>
   <meta name="description" content="Gardez une trace de vos souvenirs : souvenirs illustrés sur mesure, souvenirs sonores (podcast privé), et graphisme & illustration." />
   <meta name="robots" content="index,follow" />
@@ -16,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=300" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=400" />
 
   <script type="application/ld+json">
   {
@@ -32,6 +33,54 @@
     ]
   }
   </script>
+
+  <!-- Styles ultra-locaux à la page (pour positionner les images sans toucher au CSS global).
+       Si tu préfères, je te les déplace dans styles.css ensuite. -->
+  <style>
+    /* Image card (propre, simple, cohérent avec ton style) */
+    .card-figure{
+      margin: 14px 0 14px 0;
+      max-width: 420px;           /* évite “trop grand” */
+    }
+    .card-figure img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;        /* doux, discret */
+    }
+
+    /* Sur desktop : image légèrement alignée (rythme visuel) */
+    @media (min-width: 981px){
+      .two-col .card:nth-child(1) .card-figure{ max-width: 440px; }
+      .two-col .card:nth-child(2) .card-figure{ max-width: 360px; }
+    }
+
+    /* Section 3 : image à droite sur desktop, au-dessus sur mobile */
+    .project-block{
+      display: grid;
+      gap: 22px;
+      align-items: start;
+    }
+    @media (min-width: 981px){
+      .project-block{
+        grid-template-columns: 1.2fr .8fr;
+      }
+      .project-block .project-figure{
+        justify-self: end;
+        max-width: 420px;
+      }
+    }
+    .project-figure{
+      margin: 0;
+      max-width: 520px;
+    }
+    .project-figure img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+  </style>
 </head>
 
 <body class="home-page">
@@ -72,15 +121,26 @@
        ====================== -->
   <main id="contenu">
 
-    <!-- HERO (structure claire + SEO : un seul H1) -->
+    <!-- HERO -->
     <section class="home-hero" aria-label="Accueil">
       <div class="container">
+        <!-- H1 unique (SEO) -->
         <h1 class="h1 home-title">Gardez une trace de vos souvenirs</h1>
 
         <div class="two-col">
+
           <!-- Colonne 1: yeux -->
           <article class="card">
             <h2 class="h2">pour les yeux</h2>
+
+            <!-- Image thème 1 -->
+            <figure class="card-figure">
+              <img
+                src="assets/img/accueil/accueil-souvenirs-illustres.webp"
+                alt="Illustration de souvenirs : composition dessinée sur mesure"
+                loading="lazy"
+                decoding="async">
+            </figure>
 
             <p class="lead">
               <span class="yellow-pill-wrap">
@@ -106,6 +166,15 @@
           <article class="card">
             <h2 class="h2">pour les oreilles</h2>
 
+            <!-- Image thème 2 -->
+            <figure class="card-figure">
+              <img
+                src="assets/img/accueil/accueil-souvenirs-sonores.webp"
+                alt="Souvenir sonore : une voix enregistrée pour un podcast privé"
+                loading="lazy"
+                decoding="async">
+            </figure>
+
             <p class="lead">
               <span class="yellow-pill">
                 Une histoire ou juste une voix à capturer.
@@ -130,6 +199,7 @@
               <a class="btn btn-small" href="souvenirs-sonores.html">Souvenirs sonores</a>
             </p>
           </article>
+
         </div>
       </div>
     </section>
@@ -138,27 +208,42 @@
     <section class="section" aria-label="Graphisme et illustration">
       <div class="container">
         <div class="one-col">
-          <h2 class="h1 h1-secondary">Donnez forme et couleurs à vos projets</h2>
 
-          <p class="lead">
-            <span class="yellow-pill-wrap">
-              Je mets mon regard de graphiste et d’illustratrice au service de vos projets.
-            </span>
-          </p>
+          <div class="project-block">
+            <div>
+              <h2 class="h1 h1-secondary">Donnez forme et couleurs à vos projets</h2>
 
-          <p class="text">
-            Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
-            fresques murales ou encore illustrations saisonnières pour vitrines.
-          </p>
+              <p class="lead">
+                <span class="yellow-pill-wrap">
+                  Je mets mon regard de graphiste et d’illustratrice au service de vos projets.
+                </span>
+              </p>
 
-          <p class="text">
-            Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente
-            à vos projets, en devenir ou déjà existants.
-          </p>
+              <p class="text">
+                Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
+                fresques murales ou encore illustrations saisonnières pour vitrines.
+              </p>
 
-          <p class="cta">
-            <a class="btn btn-small" href="graphisme-illustrations.html">Graphisme & illustration</a>
-          </p>
+              <p class="text">
+                Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente
+                à vos projets, en devenir ou déjà existants.
+              </p>
+
+              <p class="cta">
+                <a class="btn btn-small" href="graphisme-illustrations.html">Graphisme & illustration</a>
+              </p>
+            </div>
+
+            <!-- Image thème 3 -->
+            <figure class="project-figure">
+              <img
+                src="assets/img/accueil/accueil-graphisme-illustration.webp"
+                alt="Graphisme et illustration : création visuelle sur mesure"
+                loading="lazy"
+                decoding="async">
+            </figure>
+          </div>
+
         </div>
       </div>
     </section>
