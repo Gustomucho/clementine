@@ -22,6 +22,7 @@
   --header-h: 78px;      /* hauteur approx du header sticky */
   --band-top-gap: 18px;  /* distance sous le header */
   --band-opacity: .92;   /* intensité du beige */
+  --band-thick: 220px;   /* épaisseur de la 1ère bande */
 }
 
 *{ box-sizing: border-box; }
@@ -32,7 +33,7 @@ html, body{ height: 100%; }
    ========================================================= */
 body{
   margin: 0;
-  background-color: #ffffff;
+  background: #fff;
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -41,49 +42,61 @@ body{
 }
 
 /* =========================================================
-   Ruban “zigzag” fixe
-   - L’idée : on dessine LA FORME du ruban avec clip-path.
-   - Il part en haut à gauche, descend vers la droite, revient à gauche,
-     puis repart vers la droite (comme ton dessin).
+   Ruban zigzag (style brouillon) = 3 bandes superposées
+   - fixe, derrière tout
+   - 1) ↘ puis 2) ↙ puis 3) ↘
+   Remarque:
+   - On évite les “pointes” en couvrant toute la surface
+   - On place la 1ère bande à partir de --start (sous le header)
    ========================================================= */
 body::before{
-  content: "";
+  content:"";
   position: fixed;
-
-  /* On déborde volontairement à gauche/droite pour éviter toute “pointe” visible */
-  left: -25%;
-  top: calc(var(--header-h) + var(--band-top-gap));
-  width: 150%;
-  height: calc(100vh - var(--header-h) - var(--band-top-gap));
-
+  inset: 0;
   z-index: -1;
   pointer-events: none;
 
-  background: rgba(250,242,228,var(--band-opacity));
+  /* Couleur du ruban */
+  --band: rgba(250,242,228,var(--band-opacity));
+  /* Position de départ sous le header */
+  --start: calc(var(--header-h) + var(--band-top-gap));
+  /* Épaisseur bande 1 */
+  --thick: var(--band-thick);
 
-  /* Ruban serpentin ↘ puis ↙ puis ↘, avec largeur constante */
-  clip-path: polygon(
-    /* ===== Bord haut (gauche -> droite) ===== */
-    0%  12%,
-    35% 24%,
-    18% 44%,
-    62% 60%,
-    40% 78%,
-    78% 92%,
-    100% 86%,
+  background:
+    /* 1) Bande principale ↘ (haut gauche -> bas droite) */
+    linear-gradient(102deg,
+      transparent 0,
+      transparent var(--start),
+      var(--band) var(--start),
+      var(--band) calc(var(--start) + var(--thick)),
+      transparent calc(var(--start) + var(--thick))
+    ),
 
-    /* ===== Bord bas (droite -> gauche) ===== */
-    100% 98%,
-    72% 88%,
-    36% 74%,
-    58% 56%,
-    14% 40%,
-    32% 20%,
-    0%  22%
-  );
+    /* 2) Bande ↙ (milieu) — réglée en % pour garder un zigzag stable */
+    linear-gradient(78deg,
+      transparent 0,
+      transparent 46%,
+      var(--band) 46%,
+      var(--band) 58%,
+      transparent 58%
+    ),
+
+    /* 3) Bande ↘ (bas) */
+    linear-gradient(102deg,
+      transparent 0,
+      transparent 72%,
+      var(--band) 72%,
+      var(--band) 84%,
+      transparent 84%
+    );
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 img{ max-width: 100%; height: auto; display: block; border: 0; }
+
 a{ color: inherit; text-decoration: none; }
 a:hover{ text-decoration: underline; }
 
@@ -200,7 +213,7 @@ a:hover{ text-decoration: underline; }
   gap: 18px;
 }
 
-/* Onglets plus grands */
+/* Onglets */
 .nav-link{
   font-size: 16px;
   color: var(--red);
@@ -209,14 +222,24 @@ a:hover{ text-decoration: underline; }
   border-radius: 10px;
   text-decoration: none;
 }
+
+/* Hover: léger fond blanc (pas jaune) */
 .nav-link:hover{
   text-decoration: none;
-  background: rgba(255,255,255,.45);
+  background: rgba(255,255,255,.55);
 }
+
+/* ✅ Actif: SOULIGNÉ (et plus jauni) */
 .nav-link.is-active,
 .nav-link[aria-current="page"]{
-  background: rgba(255,243,58,.45);
+  background: transparent;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
+
+/* Liens “désactivés” */
 .nav-link[aria-disabled="true"]{
   opacity: .55;
   cursor: not-allowed;
@@ -254,6 +277,7 @@ a:hover{ text-decoration: underline; }
 
 @media (max-width: 860px){
   .nav-toggle{ display: inline-block; }
+
   .site-nav{
     position: absolute;
     right: 20px;
@@ -313,7 +337,7 @@ a:hover{ text-decoration: underline; }
 
 /* ======================
    Capsules jaunes
-   (Raleway 300 + texte teal comme demandé)
+   (Raleway 300 + texte teal)
    ====================== */
 .yellow-pill{
   display: inline-block;
@@ -325,7 +349,7 @@ a:hover{ text-decoration: underline; }
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   max-width: 100%;
-  font-weight: 300; /* ✅ plus épais que 100, mais “light” */
+  font-weight: 300;
 }
 
 .yellow-pill-wrap{
@@ -337,7 +361,7 @@ a:hover{ text-decoration: underline; }
   line-height: 1.6;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  font-weight: 300; /* ✅ */
+  font-weight: 300;
 }
 
 /* ======================
