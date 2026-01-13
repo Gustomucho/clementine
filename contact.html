@@ -80,27 +80,40 @@
           <form id="contact-form"
       action="https://formspree.io/f/xgooepan"
       method="POST"
+      class="note"
       novalidate>
 
-  <label>
-    Nom
-    <input type="text" name="name" required>
-  </label>
+  <!-- Anti-spam (honeypot) -->
+  <div class="sr-only" aria-hidden="true">
+    <label>Ne pas remplir
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+    </label>
+  </div>
 
-  <label>
-    Email
-    <input type="email" name="email" required>
-  </label>
+  <p class="text">
+    <label for="name"><strong>Nom</strong></label><br>
+    <input id="name" type="text" name="name" required autocomplete="name"
+           style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
+  </p>
 
-  <label>
-    Message
-    <textarea name="message" rows="5" required></textarea>
-  </label>
+  <p class="text">
+    <label for="email"><strong>Email</strong></label><br>
+    <input id="email" type="email" name="email" required autocomplete="email"
+           style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
+  </p>
 
-  <button type="submit" class="btn">Envoyer</button>
+  <p class="text">
+    <label for="message"><strong>Message</strong></label><br>
+    <textarea id="message" name="message" rows="7" required
+              style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);"></textarea>
+  </p>
 
-  <!-- Message de retour -->
-  <p id="form-status" aria-live="polite"></p>
+  <p class="cta">
+    <button type="submit" class="btn btn-small">Envoyer</button>
+  </p>
+
+  <!-- Message de retour AJAX -->
+  <p id="form-status" aria-live="polite" class="text" style="margin-top:10px;"></p>
 </form>
 
           <h2 class="h2">À propos</h2>
