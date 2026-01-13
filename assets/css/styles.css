@@ -1,3 +1,9 @@
+/* =========================================================
+   Clémentine Lénelle — Styles (simple, cohérent, maintenable)
+   - Couleurs: see :root
+   - Typo: Playfair Display SC (titres), Raleway (textes)
+   ========================================================= */
+
 :root{
   --bg: #FAF2E4;
   --red: #EC423D;
@@ -23,7 +29,7 @@ body{
   font-family: var(--font-body);
   line-height: 1.6;
 
-  /* ✅ une seule bande beige : part du bord gauche et descend vers la droite */
+  /* Une seule bande beige diagonale (comme ton brouillon) */
   background-image: linear-gradient(
     115deg,
     rgba(250,242,228,0) 0%,
@@ -33,7 +39,6 @@ body{
     rgba(250,242,228,0) 62%,
     rgba(250,242,228,0) 100%
   );
-
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -48,7 +53,19 @@ a:hover{ text-decoration: underline; }
   margin: 0 auto;
 }
 
-/* Accessibilité */
+/* Skip link (accessibilité clavier) */
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: 12px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.2);
+  padding: 10px 12px;
+  border-radius: 10px;
+  z-index: 9999;
+}
+.skip-link:focus{ left: 12px; }
+
 .sr-only{
   position: absolute;
   width: 1px; height: 1px;
@@ -59,7 +76,9 @@ a:hover{ text-decoration: underline; }
   border: 0;
 }
 
-/* Typo */
+/* ======================
+   Typographies
+   ====================== */
 .h1,.h2{
   font-family: var(--font-title);
   font-style: italic;
@@ -73,6 +92,11 @@ a:hover{ text-decoration: underline; }
   line-height: 1.05;
   color: var(--teal);
   text-shadow: 0 1px 0 rgba(255,255,255,.35);
+}
+
+/* Variation pour titres secondaires "type H1" (accueil section 2) */
+.h1-secondary{
+  margin-top: 0;
 }
 
 .h2{
@@ -96,7 +120,9 @@ a:hover{ text-decoration: underline; }
 
 .section{ padding: 28px 0 70px 0; }
 
-/* Header full width */
+/* ======================
+   Header (sticky)
+   ====================== */
 .site-header{
   position: sticky;
   top: 0;
@@ -131,14 +157,14 @@ a:hover{ text-decoration: underline; }
   .brand-logo{ height: 38px; max-width: 150px; }
 }
 
-/* Nav */
+/* Navigation desktop */
 .site-nav{
   display: flex;
   align-items: center;
   gap: 18px;
 }
 
-/* ✅ onglets du menu plus grands */
+/* Onglets de menu plus grands (comme demandé) */
 .nav-link{
   font-size: 16px;
   color: var(--red);
@@ -151,9 +177,22 @@ a:hover{ text-decoration: underline; }
   text-decoration: none;
   background: rgba(255,255,255,.45);
 }
-.nav-link[aria-disabled="true"]{ opacity: .55; cursor: not-allowed; }
 
-/* Mobile menu */
+/* Lien actif (page courante) */
+.nav-link.is-active,
+.nav-link[aria-current="page"]{
+  background: rgba(255,243,58,.45);
+}
+
+/* Liens “désactivés” (pages pas prêtes) */
+.nav-link[aria-disabled="true"]{
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* ======================
+   Mobile menu
+   ====================== */
 .nav-toggle{
   display: none;
   border: 1px solid rgba(73,13,11,.35);
@@ -202,20 +241,23 @@ a:hover{ text-decoration: underline; }
   .site-nav.is-open{ display: flex; }
 }
 
-/* ✅ Boutons “comme avant” : arrondis, taille normale */
+/* ======================
+   Boutons (retour "comme avant")
+   - Arrondis, simples, élégants
+   ====================== */
 .btn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
   padding: 12px 16px;
-  border-radius: 14px;              /* retour arrondi */
+  border-radius: 14px;
   border: 2px solid var(--red);
   background: transparent;
 
   color: var(--red);
-  font-size: 14px;                  /* retour taille normale */
-  font-weight: 500;                 /* medium 500 */
+  font-size: 14px;
+  font-weight: 500; /* medium */
   line-height: 1;
   cursor: pointer;
   text-decoration: none;
@@ -226,13 +268,21 @@ a:hover{ text-decoration: underline; }
   text-decoration: none;
 }
 .btn:active{ transform: translateY(0); }
-.btn-small{ padding: 11px 14px; font-size: 13px; }
-.btn[aria-disabled="true"]{ opacity: .55; cursor: not-allowed; pointer-events: none; }
 
-/* ✅ On enlève les lignes brunes : si tu veux les garder plus tard, supprime juste ce bloc */
-.scribbles{ display: none; }
+.btn-small{
+  padding: 11px 14px;
+  font-size: 13px;
+}
 
-/* Capsules jaunes */
+.btn[aria-disabled="true"]{
+  opacity: .55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ======================
+   Capsules jaunes (texte teal + Raleway 300)
+   ====================== */
 .yellow-pill{
   display: inline-block;
   background: var(--yellow);
@@ -245,6 +295,7 @@ a:hover{ text-decoration: underline; }
   max-width: 100%;
   font-weight: 300; /* Raleway light 300 */
 }
+
 .yellow-pill-wrap{
   display: inline;
   background: var(--yellow);
@@ -257,11 +308,23 @@ a:hover{ text-decoration: underline; }
   font-weight: 300; /* Raleway light 300 */
 }
 
-/* Layout Accueil */
+/* ======================
+   Layout Accueil
+   ====================== */
 .home-title{
   margin: 22px 0 24px 0;
 }
 
+/* Petites cartes légères (juste pour le rythme, pas de bordures lourdes) */
+.card{
+  max-width: 520px;
+}
+
+.cta{
+  margin-top: 14px;
+}
+
+/* 2 colonnes desktop */
 .two-col{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -270,9 +333,9 @@ a:hover{ text-decoration: underline; }
   margin-top: 10px;
 }
 
-/* ✅ plus d’espace vertical entre sections */
+/* Plus d’espace entre les deux sections (comme demandé) */
 .one-col{
-  margin-top: 110px;   /* augmenté */
+  margin-top: 110px;
   max-width: 720px;
 }
 
@@ -281,12 +344,41 @@ a:hover{ text-decoration: underline; }
   .one-col{ margin-top: 60px; }
 }
 
-/* Footer (mentions légales + politique) */
+/* ======================
+   Page Souvenirs illustrés
+   ====================== */
+.page-header{
+  margin-bottom: 26px;
+}
+
+.content{
+  max-width: 760px;
+}
+
+.cta-row{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0 22px 0;
+}
+
+.note{
+  margin-top: 26px;
+  padding: 14px 16px;
+  border: 1px solid rgba(73,13,11,.18);
+  border-radius: 16px;
+  background: rgba(255,255,255,.55);
+}
+
+/* ======================
+   Footer
+   ====================== */
 .site-footer{
   padding: 26px 0 40px 0;
   border-top: 1px solid rgba(73,13,11,.16);
   background: rgba(255,255,255,.75);
 }
+
 .footer-inner{
   display: flex;
   align-items: center;
@@ -294,11 +386,13 @@ a:hover{ text-decoration: underline; }
   gap: 14px;
   flex-wrap: wrap;
 }
+
 .footer-text{
   margin: 0;
   font-size: 13px;
   color: rgba(73,13,11,.68);
 }
+
 .footer-links{
   display: flex;
   gap: 14px;
