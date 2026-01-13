@@ -2,19 +2,17 @@
  * main.js
  * - Navigation mobile (hamburger)
  * - Ferme le menu si clic en dehors
- * - Ferme le menu si on repasse en desktop (resize)
+ * - Ferme le menu au resize (retour desktop)
  * - Remplit automatiquement l’année dans le footer
  */
 (function () {
-  // 1) Année automatique dans le footer
+  // Année automatique
   const year = document.querySelector("#year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // 2) Menu mobile (hamburger)
+  // Menu mobile
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector("#site-nav");
-
-  // Si la page n'a pas de nav (ou structure différente), on ne fait rien
   if (!navToggle || !nav) return;
 
   function setExpanded(isOpen) {
@@ -22,13 +20,13 @@
     nav.classList.toggle("is-open", isOpen);
   }
 
-  // Toggle au clic
+  // Toggle menu
   navToggle.addEventListener("click", () => {
     const isOpen = nav.classList.contains("is-open");
     setExpanded(!isOpen);
   });
 
-  // Fermer le menu si clic en dehors (mobile)
+  // Clic en dehors = fermer
   document.addEventListener("click", (e) => {
     const isOpen = nav.classList.contains("is-open");
     if (!isOpen) return;
@@ -36,7 +34,7 @@
     setExpanded(false);
   });
 
-  // Fermer au resize quand on repasse en desktop (évite états bizarres)
+  // Resize = fermer si repasse en desktop
   window.addEventListener("resize", () => {
     if (window.innerWidth > 860) setExpanded(false);
   });
