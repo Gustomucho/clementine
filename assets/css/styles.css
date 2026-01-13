@@ -18,20 +18,65 @@
   --font-title: "Playfair Display SC", serif;
   --font-body: "Raleway", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
-  /* Angle de la bande diagonale (facile à ajuster) */
-  --band-angle: 45deg;
+  /* Réglages bande “zigzag” */
+  --header-h: 78px;      /* hauteur approximative du header */
+  --band-tilt: -12deg;   /* pente : proche de 0 = moins pentue */
+  --band-opacity: .92;   /* intensité du beige */
+  --band-top-gap: 18px;  /* “quelques cm” sous le header */
 }
 
 *{ box-sizing: border-box; }
 html, body{ height: 100%; }
 
+/* =========================================================
+   BODY : fond blanc + bande zigzag fixe via pseudo-élément
+   IMPORTANT : on ne met plus de background-image directement sur body.
+   ========================================================= */
 body{
   margin: 0;
-  background-color: #ffffff; /* fond blanc */
+  background-color: #ffffff;
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
+  position: relative;
+  overflow-x: hidden; /* évite scroll horizontal dû à la bande inclinée */
+}
 
+/* Bande zigzag fixe (effet “papier découpé”), derrière tout */
+body::before{
+  content: "";
+  position: fixed;
+  left: -20%;
+  top: calc(var(--header-h) + var(--band-top-gap));
+  width: 140%;
+  height: calc(100vh - var(--header-h) - var(--band-top-gap));
+  z-index: -1;
+  pointer-events: none;
+
+  background: rgba(250,242,228,var(--band-opacity));
+
+  /* Inclinaison du ruban */
+  transform: rotate(var(--band-tilt));
+  transform-origin: top left;
+
+  /* Bords “zigzag” (haut + bas) */
+  clip-path: polygon(
+    /* haut */
+    0% 30%,
+    5% 28%, 10% 30%, 15% 28%, 20% 30%,
+    25% 28%, 30% 30%, 35% 28%, 40% 30%,
+    45% 28%, 50% 30%, 55% 28%, 60% 30%,
+    65% 28%, 70% 30%, 75% 28%, 80% 30%,
+    85% 28%, 90% 30%, 95% 28%, 100% 30%,
+
+    /* bas */
+    100% 70%,
+    95% 72%, 90% 70%, 85% 72%, 80% 70%,
+    75% 72%, 70% 70%, 65% 72%, 60% 70%,
+    55% 72%, 50% 70%, 45% 72%, 40% 70%,
+    35% 72%, 30% 70%, 25% 72%, 20% 70%,
+    15% 72%, 10% 70%, 5% 72%, 0% 70%
+  );
 }
 
 img{ max-width: 100%; height: auto; display: block; border: 0; }
@@ -84,10 +129,7 @@ a:hover{ text-decoration: underline; }
   text-shadow: 0 1px 0 rgba(255,255,255,.35);
 }
 
-/* Variation pour titres secondaires "type H1" (accueil section 2) */
-.h1-secondary{
-  margin-top: 0;
-}
+.h1-secondary{ margin-top: 0; }
 
 .h2{
   font-weight: 700;
@@ -154,7 +196,7 @@ a:hover{ text-decoration: underline; }
   gap: 18px;
 }
 
-/* Onglets de menu plus grands (comme demandé) */
+/* Onglets plus grands */
 .nav-link{
   font-size: 16px;
   color: var(--red);
@@ -167,14 +209,10 @@ a:hover{ text-decoration: underline; }
   text-decoration: none;
   background: rgba(255,255,255,.45);
 }
-
-/* Lien actif (page courante) */
 .nav-link.is-active,
 .nav-link[aria-current="page"]{
   background: rgba(255,243,58,.45);
 }
-
-/* Liens “désactivés” (pages pas prêtes) */
 .nav-link[aria-disabled="true"]{
   opacity: .55;
   cursor: not-allowed;
@@ -232,8 +270,7 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ======================
-   Boutons (retour "comme avant")
-   - Arrondis, simples, élégants
+   Boutons (arrondis, simples)
    ====================== */
 .btn{
   display: inline-flex;
@@ -247,7 +284,7 @@ a:hover{ text-decoration: underline; }
 
   color: var(--red);
   font-size: 14px;
-  font-weight: 500; /* medium */
+  font-weight: 500;
   line-height: 1;
   cursor: pointer;
   text-decoration: none;
@@ -271,7 +308,7 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ======================
-   Capsules jaunes (texte teal + Raleway 300)
+   Capsules jaunes
    ====================== */
 .yellow-pill{
   display: inline-block;
@@ -283,7 +320,7 @@ a:hover{ text-decoration: underline; }
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   max-width: 100%;
-  font-weight: 300; /* Raleway light 300 */
+  font-weight: 300;
 }
 
 .yellow-pill-wrap{
@@ -295,26 +332,24 @@ a:hover{ text-decoration: underline; }
   line-height: 1.6;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  font-weight: 300; /* Raleway light 300 */
+  font-weight: 300;
 }
 
 /* ======================
-   Layout Accueil
+   Accueil
+   - home-hero : on ajoute un padding-top pour “respirer” sous le header
+   - le zigzag est sur body::before (fixe)
    ====================== */
-.home-title{
-  margin: 22px 0 24px 0;
+.home-hero{
+  padding: 88px 0 70px; /* démarre visuellement sous le header */
 }
 
-/* Petites cartes légères (juste pour le rythme, pas de bordures lourdes) */
-.card{
-  max-width: 520px;
-}
+.home-title{ margin: 22px 0 24px 0; }
 
-.cta{
-  margin-top: 14px;
-}
+.card{ max-width: 520px; }
 
-/* 2 colonnes desktop */
+.cta{ margin-top: 14px; }
+
 .two-col{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -323,7 +358,7 @@ a:hover{ text-decoration: underline; }
   margin-top: 10px;
 }
 
-/* Plus d’espace entre les deux sections (comme demandé) */
+/* espace entre hero (2 colonnes) et section suivante */
 .one-col{
   margin-top: 110px;
   max-width: 720px;
@@ -337,13 +372,8 @@ a:hover{ text-decoration: underline; }
 /* ======================
    Page Souvenirs illustrés
    ====================== */
-.page-header{
-  margin-bottom: 26px;
-}
-
-.content{
-  max-width: 760px;
-}
+.page-header{ margin-bottom: 26px; }
+.content{ max-width: 760px; }
 
 .cta-row{
   display: flex;
@@ -368,7 +398,6 @@ a:hover{ text-decoration: underline; }
   border-top: 1px solid rgba(73,13,11,.16);
   background: rgba(255,255,255,.75);
 }
-
 .footer-inner{
   display: flex;
   align-items: center;
@@ -376,36 +405,14 @@ a:hover{ text-decoration: underline; }
   gap: 14px;
   flex-wrap: wrap;
 }
-
 .footer-text{
   margin: 0;
   font-size: 13px;
   color: rgba(73,13,11,.68);
 }
-
 .footer-links{
   display: flex;
   gap: 14px;
   font-size: 13px;
   color: rgba(73,13,11,.68);
-}
-
-/* ======================
-   Bande diagonale accueil
-   ====================== */
-.home-hero{
-  position: relative;
-  padding: 90px 0 120px 0; /* espace sous le header */
-  background-image: linear-gradient(
-    20deg, /* moins pentue */
-    rgba(250,242,228,0) 0%,
-    rgba(250,242,228,0) 30%,
-    rgba(250,242,228,.95) 30%,
-    rgba(250,242,228,.95) 65%,
-    rgba(250,242,228,0) 65%,
-    rgba(250,242,228,0) 100%
-  );
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 }
