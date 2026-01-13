@@ -77,72 +77,31 @@
             2) Récupère l’endpoint (ex: https://formspree.io/f/xxxxxx)
             3) Remplace YOUR_FORMSPREE_ID ci-dessous.
           -->
-          <form
-            action="https://formspree.io/f/xgooepan"
-            method="POST"
-            class="note"
-            aria-label="Formulaire de contact">
+          <form id="contact-form"
+      action="https://formspree.io/f/xgooepan"
+      method="POST"
+      novalidate>
 
-            <!-- Anti-spam (honeypot) : les humains ne le remplissent pas -->
-            <div class="sr-only" aria-hidden="true">
-              <label>Ne pas remplir ce champ
-                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-              </label>
-            </div>
+  <label>
+    Nom
+    <input type="text" name="name" required>
+  </label>
 
-            <!-- Personnalisation Formspree -->
-            <input type="hidden" name="_subject" value="Nouveau message — Site Clémentine Lénelle">
-            <!-- Redirection après envoi -->
-            <input type="hidden" name="_next" value="https://gustomucho.github.io/clementine/contact.html?success=1">
+  <label>
+    Email
+    <input type="email" name="email" required>
+  </label>
 
-            <p class="text">
-              <label for="name"><strong>Nom</strong></label><br>
-              <input id="name" name="name" type="text" required
-                     autocomplete="name"
-                     style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
-            </p>
+  <label>
+    Message
+    <textarea name="message" rows="5" required></textarea>
+  </label>
 
-            <p class="text">
-              <label for="email"><strong>Email</strong></label><br>
-              <input id="email" name="email" type="email" required
-                     autocomplete="email"
-                     style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
-            </p>
+  <button type="submit" class="btn">Envoyer</button>
 
-            <p class="text">
-              <label for="type"><strong>Votre demande</strong></label><br>
-              <select id="type" name="type"
-                      style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
-                <option>Souvenirs illustrés</option>
-                <option>Souvenirs sonores</option>
-                <option>Graphisme & illustration</option>
-                <option>Autre</option>
-              </select>
-            </p>
-
-            <p class="text">
-              <label for="subject"><strong>Sujet</strong></label><br>
-              <input id="subject" name="subject" type="text" required
-                     placeholder="Ex : cadeau d’anniversaire, projet de faire-part…"
-                     style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
-            </p>
-
-            <p class="text">
-              <label for="message"><strong>Message</strong></label><br>
-              <textarea id="message" name="message" rows="7" required
-                        placeholder="Dites-moi ce que vous avez en tête, les détails importants, et vos délais si vous en avez."
-                        style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);"></textarea>
-            </p>
-
-            <p class="text" style="font-size:13px; color: rgba(73,13,11,.75);">
-              En envoyant ce formulaire, vous acceptez que les informations saisies soient utilisées pour répondre à votre demande.
-              Pour en savoir plus : <a href="politique-confidentialite.html">politique de confidentialité</a>.
-            </p>
-
-            <p class="cta">
-              <button class="btn btn-small" type="submit">Envoyer</button>
-            </p>
-          </form>
+  <!-- Message de retour -->
+  <p id="form-status" aria-live="polite"></p>
+</form>
 
           <h2 class="h2">À propos</h2>
 
