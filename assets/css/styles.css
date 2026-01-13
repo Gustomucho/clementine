@@ -64,32 +64,32 @@ body::before{
   --thick: var(--band-thick);
 
   background:
-    /* 1) Bande principale ↘ (haut gauche -> bas droite) */
-    linear-gradient(102deg,
-      transparent 0,
-      transparent var(--start),
-      var(--band) var(--start),
-      var(--band) calc(var(--start) + var(--thick)),
-      transparent calc(var(--start) + var(--thick))
-    ),
+  /* 1) Bande principale ↘ (gauche → droite) */
+  linear-gradient(192deg,
+    transparent calc(var(--start) - 9999px),
+    transparent calc(var(--start) + 0px),
+    var(--band)  calc(var(--start) + 0px),
+    var(--band)  calc(var(--start) + var(--thick)),
+    transparent  calc(var(--start) + var(--thick) + 1px)
+  ),
 
-    /* 2) Bande ↙ (milieu) — réglée en % pour garder un zigzag stable */
-    linear-gradient(78deg,
-      transparent 0,
-      transparent 46%,
-      var(--band) 46%,
-      var(--band) 58%,
-      transparent 58%
-    ),
+  /* 2) Bande qui revient ↙ */
+  linear-gradient(168deg,
+    transparent 0,
+    transparent 46%,
+    var(--band)  46%,
+    var(--band)  58%,
+    transparent  58%
+  ),
 
-    /* 3) Bande ↘ (bas) */
-    linear-gradient(102deg,
-      transparent 0,
-      transparent 72%,
-      var(--band) 72%,
-      var(--band) 84%,
-      transparent 84%
-    );
+  /* 3) Bande finale ↘ */
+  linear-gradient(192deg,
+    transparent 0,
+    transparent 72%,
+    var(--band)  72%,
+    var(--band)  84%,
+    transparent  84%
+  );
 
   background-repeat: no-repeat;
   background-size: 100% 100%;
