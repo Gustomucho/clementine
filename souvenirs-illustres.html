@@ -16,7 +16,116 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=300" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=401" />
+
+  <!-- Styles locaux : grille d’images + agrandissement au clic (CSS only) -->
+  <style>
+    /* Galerie : taille proche des images de l’accueil */
+    .gallery{
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    @media (max-width: 900px){
+      .gallery{ grid-template-columns: 1fr; }
+    }
+
+    .thumb{
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .thumb figure{
+      margin: 0;
+    }
+
+    .thumb img{
+      width: min(300px, 100%);         /* “pas trop grand” */
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+
+    /* Sur mobile : un peu plus petit et centré */
+    @media (max-width: 900px){
+      .thumb img{
+        width: min(260px, 92vw);
+        margin: 0 auto;
+      }
+    }
+
+    .thumb figcaption{
+      margin-top: 8px;
+      font-size: 13px;
+      color: rgba(73,13,11,.70);
+    }
+
+    /* ===== Lightbox (CSS only via :target) ===== */
+    .lightbox{
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0,0,0,.72);
+      z-index: 2000;
+    }
+    .lightbox:target{
+      display: flex;
+    }
+
+    .lightbox-content{
+      max-width: min(980px, 96vw);
+      max-height: 86vh;
+      display: grid;
+      gap: 10px;
+      align-items: start;
+      justify-items: center;
+    }
+
+    .lightbox-content img{
+      width: auto;
+      max-width: 100%;
+      max-height: 78vh;
+      border-radius: 18px;
+      display: block;
+      background: #fff;
+    }
+
+    .lightbox-caption{
+      color: rgba(255,255,255,.92);
+      font-size: 14px;
+      text-align: center;
+      max-width: 70ch;
+    }
+
+    .lightbox-close{
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: rgba(255,255,255,.90);
+      border: 1px solid rgba(0,0,0,.15);
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 1;
+      color: #111;
+    }
+
+    .hint{
+      font-size: 13px;
+      color: rgba(73,13,11,.65);
+      margin-top: 8px;
+    }
+  </style>
 </head>
 
 <body>
@@ -58,7 +167,7 @@
           </p>
         </header>
 
-        <section class="content">
+        <section class="content" aria-label="Présentation des souvenirs illustrés">
           <p class="text">
             On a tous des moments qui comptent pour nous. Pas forcément spectaculaires.
             Juste des instants qui racontent une histoire.
@@ -99,35 +208,105 @@
             <a class="btn btn-small" href="contact.html">Créer des souvenirs illustrés</a>
           </div>
 
-          <!-- Images (placeholders) -->
-          <div class="note">
-            <p class="text"><strong>Images à ajouter :</strong></p>
+          <p class="hint">Astuce : cliquez sur une image pour l’agrandir.</p>
 
-            <figure class="text">
-              <em>Souvenirs illustrés — Adri et Ali</em><br>
-              <!-- <img src="assets/img/souvenirs-illustres/adri-ali.webp" alt="Souvenir illustré : Adri et Ali"> -->
-            </figure>
+          <!-- ======================
+               Galerie (4 images)
+               ====================== -->
+          <section class="gallery" aria-label="Exemples de souvenirs illustrés">
 
-            <figure class="text">
-              <em>Souvenirs illustrés — Gull et Estelle Defalque</em><br>
-              <!-- <img src="assets/img/souvenirs-illustres/gull-estelle-defalque.webp" alt="Souvenir illustré : Gull et Estelle Defalque"> -->
-            </figure>
+            <!-- 1 -->
+            <a class="thumb" href="#img-adri-ali" aria-label="Agrandir : Souvenir illustré Adri et Ali">
+              <figure>
+                <img
+                  src="assets/img/souvenirs-illustres/souvenir-illustre-adri-ali.webp"
+                  alt="Souvenir illustré sur mesure : Adri et Ali"
+                  loading="lazy"
+                  decoding="async">
+                <figcaption>Adri &amp; Ali</figcaption>
+              </figure>
+            </a>
 
-            <figure class="text">
-              <em>Souvenirs illustrés — La route des Niams</em><br>
-              <!-- <img src="assets/img/souvenirs-illustres/la-route-des-niams.webp" alt="Souvenir illustré : La route des Niams"> -->
-            </figure>
+            <!-- 2 -->
+            <a class="thumb" href="#img-gull-estelle" aria-label="Agrandir : Souvenir illustré Gull et Estelle Defalque">
+              <figure>
+                <img
+                  src="assets/img/souvenirs-illustres/souvenir-illustre-gull-estelle-defalque.webp"
+                  alt="Souvenir illustré sur mesure : Gull et Estelle Defalque"
+                  loading="lazy"
+                  decoding="async">
+                <figcaption>Gull &amp; Estelle Defalque</figcaption>
+              </figure>
+            </a>
 
-            <figure class="text">
-              <em>Souvenirs illustrés — La carte de nos souvenirs à Schaerbeek</em><br>
-              <!-- <img src="assets/img/souvenirs-illustres/carte-souvenirs-schaerbeek.webp" alt="Carte illustrée des souvenirs à Schaerbeek"> -->
-            </figure>
-          </div>
+            <!-- 3 -->
+            <a class="thumb" href="#img-mariage" aria-label="Agrandir : Souvenir illustré mariage">
+              <figure>
+                <img
+                  src="assets/img/souvenirs-illustres/souvenir-illustre-mariage.webp"
+                  alt="Souvenir illustré de mariage : composition de souvenirs dessinée sur mesure"
+                  loading="lazy"
+                  decoding="async">
+                <figcaption>Mariage</figcaption>
+              </figure>
+            </a>
+
+            <!-- 4 -->
+            <a class="thumb" href="#img-carte-usa" aria-label="Agrandir : Carte de souvenirs illustrée">
+              <figure>
+                <img
+                  src="assets/img/souvenirs-illustres/souvenir-illustre-carte-souvenirs-usa.webp"
+                  alt="Carte de souvenirs illustrée : composition de lieux et moments"
+                  loading="lazy"
+                  decoding="async">
+                <figcaption>Carte de souvenirs</figcaption>
+              </figure>
+            </a>
+
+          </section>
 
         </section>
 
       </div>
     </section>
+
+    <!-- ======================
+         Lightbox (agrandissement)
+         Clic sur X ou sur “retour” = ferme
+         ====================== -->
+
+    <div id="img-adri-ali" class="lightbox" aria-label="Agrandissement image Adri et Ali">
+      <a class="lightbox-close" href="#contenu" aria-label="Fermer">✕</a>
+      <div class="lightbox-content">
+        <img src="assets/img/souvenirs-illustres/souvenir-illustre-adri-ali.webp" alt="Souvenir illustré sur mesure : Adri et Ali">
+        <div class="lightbox-caption">Adri &amp; Ali — Souvenir illustré sur mesure.</div>
+      </div>
+    </div>
+
+    <div id="img-gull-estelle" class="lightbox" aria-label="Agrandissement image Gull et Estelle Defalque">
+      <a class="lightbox-close" href="#contenu" aria-label="Fermer">✕</a>
+      <div class="lightbox-content">
+        <img src="assets/img/souvenirs-illustres/souvenir-illustre-gull-estelle-defalque.webp" alt="Souvenir illustré sur mesure : Gull et Estelle Defalque">
+        <div class="lightbox-caption">Gull &amp; Estelle Defalque — Souvenir illustré sur mesure.</div>
+      </div>
+    </div>
+
+    <div id="img-mariage" class="lightbox" aria-label="Agrandissement image Mariage">
+      <a class="lightbox-close" href="#contenu" aria-label="Fermer">✕</a>
+      <div class="lightbox-content">
+        <img src="assets/img/souvenirs-illustres/souvenir-illustre-mariage.webp" alt="Souvenir illustré de mariage : composition de souvenirs dessinée sur mesure">
+        <div class="lightbox-caption">Mariage — Une composition de souvenirs, dessinée sur mesure.</div>
+      </div>
+    </div>
+
+    <div id="img-carte-usa" class="lightbox" aria-label="Agrandissement image Carte de souvenirs">
+      <a class="lightbox-close" href="#contenu" aria-label="Fermer">✕</a>
+      <div class="lightbox-content">
+        <img src="assets/img/souvenirs-illustres/souvenir-illustre-carte-souvenirs-usa.webp" alt="Carte de souvenirs illustrée : composition de lieux et moments">
+        <div class="lightbox-caption">Carte de souvenirs — Lieux et moments rassemblés en une seule illustration.</div>
+      </div>
+    </div>
+
   </main>
 
   <footer class="site-footer">
