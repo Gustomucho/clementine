@@ -4,19 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact · À propos — Clémentine Lénelle</title>
-  <meta name="description" content="Contactez Clémentine Lénelle (graphiste, illustratrice). À propos : souvenirs, podcast privé, illustrations sur mesure." />
+  <meta name="description" content="Contactez Clémentine Lénelle (graphiste, illustratrice). Créer un souvenir illustré, un souvenir sonore, ou mettre en image un projet." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://gustomucho.github.io/clementine/contact.html" />
 
   <meta property="og:title" content="Contact · À propos — Clémentine Lénelle" />
-  <meta property="og:description" content="Écrivez-moi pour créer un souvenir illustré ou un souvenir sonore, ou pour un projet de graphisme & illustration." />
+  <meta property="og:description" content="Écrivez-moi pour créer un souvenir illustré, un souvenir sonore, ou mettre en image votre projet." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gustomucho.github.io/clementine/contact.html" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=300" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=310" />
 </head>
 
 <body>
@@ -58,49 +58,113 @@
           </p>
         </header>
 
-        <!-- Formulaire : version simple (à brancher plus tard sur Formspree / Netlify Forms / autre) -->
-        <section class="content" aria-label="Formulaire de contact">
-          <h2 class="h2">Me contacter</h2>
+        <section class="content" aria-label="Contact">
 
-          <div class="note">
+          <!-- Message de succès (apparaît après envoi) -->
+          <div class="note" id="successBox" style="display:none;">
             <p class="text">
-              <strong>Formulaire à brancher :</strong> Dis-moi si tu préfères
-              <em>Formspree</em> (simple sur GitHub Pages) ou un autre service.
-              Pour l’instant, tu peux aussi mettre un mail direct.
-            </p>
-            <!-- Option mailto (rapide) : remplace EMAIL -->
-            <p class="text">
-              Email : <a href="mailto:EMAIL@EXEMPLE.COM">EMAIL@EXEMPLE.COM</a>
+              <strong>Merci !</strong> Ton message est bien envoyé. Je reviens vers toi dès que possible.
             </p>
           </div>
+
+          <h2 class="h2">Me contacter</h2>
+
+          <p class="text">
+            Email (backup) :
+            <a href="mailto:clementinelenellegraphisme@gmail.com">clementinelenellegraphisme@gmail.com</a>
+          </p>
+
+          <!--
+            Formspree :
+            1) Crée un formulaire sur Formspree avec l’email ci-dessus.
+            2) Récupère l’endpoint (ex: https://formspree.io/f/xxxxxx)
+            3) Remplace YOUR_FORMSPREE_ID ci-dessous.
+          -->
+          <form
+            action="https://formspree.io/f/xgooepan"
+            method="POST"
+            class="note"
+            aria-label="Formulaire de contact">
+
+            <!-- Anti-spam (honeypot) : les humains ne le remplissent pas -->
+            <div class="sr-only" aria-hidden="true">
+              <label>Ne pas remplir ce champ
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+              </label>
+            </div>
+
+            <!-- Personnalisation Formspree -->
+            <input type="hidden" name="_subject" value="Nouveau message — Site Clémentine Lénelle">
+            <!-- Redirection après envoi -->
+            <input type="hidden" name="_next" value="https://gustomucho.github.io/clementine/contact.html?success=1">
+
+            <p class="text">
+              <label for="name"><strong>Nom</strong></label><br>
+              <input id="name" name="name" type="text" required
+                     autocomplete="name"
+                     style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
+            </p>
+
+            <p class="text">
+              <label for="email"><strong>Email</strong></label><br>
+              <input id="email" name="email" type="email" required
+                     autocomplete="email"
+                     style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
+            </p>
+
+            <p class="text">
+              <label for="type"><strong>Votre demande</strong></label><br>
+              <select id="type" name="type"
+                      style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
+                <option>Souvenirs illustrés</option>
+                <option>Souvenirs sonores</option>
+                <option>Graphisme & illustration</option>
+                <option>Autre</option>
+              </select>
+            </p>
+
+            <p class="text">
+              <label for="subject"><strong>Sujet</strong></label><br>
+              <input id="subject" name="subject" type="text" required
+                     placeholder="Ex : cadeau d’anniversaire, projet de faire-part…"
+                     style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
+            </p>
+
+            <p class="text">
+              <label for="message"><strong>Message</strong></label><br>
+              <textarea id="message" name="message" rows="7" required
+                        placeholder="Dites-moi ce que vous avez en tête, les détails importants, et vos délais si vous en avez."
+                        style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);"></textarea>
+            </p>
+
+            <p class="text" style="font-size:13px; color: rgba(73,13,11,.75);">
+              En envoyant ce formulaire, vous acceptez que les informations saisies soient utilisées pour répondre à votre demande.
+              Pour en savoir plus : <a href="politique-confidentialite.html">politique de confidentialité</a>.
+            </p>
+
+            <p class="cta">
+              <button class="btn btn-small" type="submit">Envoyer</button>
+            </p>
+          </form>
 
           <h2 class="h2">À propos</h2>
 
           <p class="text">
             Salut ! Moi c’est Clem’ ! J’ai 34 ans, deux enfants et un compagnon que j’aime.
             Petite, je dessinais tout le temps. Et de fil en aiguille, j’en ai fait mon métier.
+            Et puis, j’ai toujours eu un truc avec les souvenirs, garder une trace, un petit quelque chose qui fait penser à un grand quelque chose.
           </p>
 
           <p class="text">
-            Et puis, j’ai toujours eu un truc avec les souvenirs, garder une trace, un petit quelque chose qui fait penser
-            à un grand quelque chose.
+            Il y a quelques années, je suis passée au graal du souvenir : j’ai décidé d’enregistrer la voix de tous mes oncles et tante
+            pour faire le portrait sonore de mon grand-père paternel que je n’ai pas connu. Ça m’a permis de mieux connaître l’histoire de ma famille,
+            et puis de comprendre un peu plus qui j’étais et d’où je venais.
           </p>
 
           <p class="text">
-            Il y a quelques années, je suis passée au graal du souvenir : j’ai décidé d’enregistrer la voix de tous mes oncles
-            et tante pour faire le portrait sonore de mon grand-père paternel que je n’ai pas connu. Ça m’a permis de mieux
-            connaître l’histoire de ma famille, et puis de comprendre un peu plus qui j’étais et d’où je venais.
-          </p>
-
-          <p class="text">
-            Puis j’ai fait un autre docu sonore sur ma grand-mère maternelle. Un lourd secret familial, qui m’a aussi éclairée
-            sur ma famille.
-          </p>
-
-          <p class="text">
-            Et quand quelques années plus tard, avec ma petite famille on a déménagé, j’ai voulu rassembler tous les souvenirs
-            de notre quartier et de notre famille sur un plan de Schaerbeek et les illustrer. Et BAM!, j’avais enfin trouvé
-            deux moyens de capturer les souvenirs.
+            Puis j’ai fait un autre docu sonore sur ma grand-mère maternelle. Un lourd secret familial, qui m’a aussi éclairée sur ma famille.
+            Et quand quelques années plus tard, avec ma petite famille on a déménagé, j’ai voulu rassembler tous les souvenirs de notre quartier
+            et de notre famille sur un plan de Schaerbeek et les illustrer. Et BAM!, j’avais enfin trouvé deux moyens de capturer les souvenirs.
           </p>
 
           <p class="text">
@@ -108,14 +172,16 @@
           </p>
 
           <p class="text">
-            Sinon je mangerais des pâtes tous les jours si je le pouvais (yes you can!), j’ai une collection de tisanes
-            à faire pâlir le plus grand Maharadja du Darjeeling (??), je fais mes smileys à l’envers (: et j’ai une mèche
-            de cheveux blancs parce que j’ai eu un deuxième enfant (ou parce que j’approche du milieu de la trentaine, who knows?!).
+            Sinon je mangerais des pâtes tous les jours si je le pouvais (yes you can!), j’ai une collection de tisanes à faire pâlir le plus grand
+            Maharadja du Darjeeling (??), je fais mes smileys à l’envers (: et j’ai une mèche de cheveux blancs parce que j’ai eu un deuxième enfant
+            (ou parce que j’approche du milieu de la trentaine, who knows?!).
+            <br><br>
+            Bisous et à vite (:<br>
+            Clem’
           </p>
 
-          <p class="text">Bisous et à vite (:<br>Clem’</p>
-
         </section>
+
       </div>
     </section>
   </main>
@@ -134,5 +200,17 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    // Affiche le message de succès après redirection Formspree (?success=1)
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("success") === "1") {
+        const box = document.getElementById("successBox");
+        if (box) box.style.display = "block";
+        // optionnel : remonter au message
+        box?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    })();
+  </script>
 </body>
 </html>
