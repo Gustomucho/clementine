@@ -102,10 +102,35 @@
            style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
   </p>
 
+  <!-- ✅ Champ sujet prédéfini (remis) -->
+  <p class="text">
+    <label for="type"><strong>Votre demande</strong></label><br>
+    <select id="type" name="type"
+            style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
+      <option value="Souvenirs illustrés">Souvenirs illustrés</option>
+      <option value="Souvenirs sonores">Souvenirs sonores</option>
+      <option value="Graphisme & illustration">Graphisme & illustration</option>
+      <option value="Autre">Autre</option>
+    </select>
+  </p>
+
+  <p class="text">
+    <label for="subject"><strong>Sujet</strong></label><br>
+    <input id="subject" type="text" name="subject" required
+           placeholder="Ex : cadeau d’anniversaire, projet de faire-part…"
+           style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);">
+  </p>
+
   <p class="text">
     <label for="message"><strong>Message</strong></label><br>
     <textarea id="message" name="message" rows="7" required
+              placeholder="Dites-moi ce que vous avez en tête, les détails importants, et vos délais si vous en avez."
               style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(73,13,11,.25);"></textarea>
+  </p>
+
+  <p class="text" style="font-size:13px; color: rgba(73,13,11,.75);">
+    En envoyant ce formulaire, vous acceptez que les informations saisies soient utilisées pour répondre à votre demande.
+    Pour en savoir plus : <a href="politique-confidentialite.html">politique de confidentialité</a>.
   </p>
 
   <p class="cta">
