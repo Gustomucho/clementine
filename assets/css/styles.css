@@ -66,32 +66,32 @@ body::before{
   --offset: calc(var(--header-h) + var(--band-top-gap));
 
   background:
-    /* Bande 1 ↘ */
-    linear-gradient(102deg,
-      transparent 0%,
-      transparent 32%,
-      var(--band) 32%,
-      var(--band) 44%,
-      transparent 44%
-    ),
+  /* 1) Bande principale ↘ (gauche → droite) */
+  linear-gradient(192deg,
+    transparent calc(var(--start) - 9999px),
+    transparent calc(var(--start) + 0px),
+    var(--band)  calc(var(--start) + 0px),
+    var(--band)  calc(var(--start) + var(--thick)),
+    transparent  calc(var(--start) + var(--thick) + 1px)
+  ),
 
-    /* Bande 2 ↙ */
-    linear-gradient(78deg,
-      transparent 0%,
-      transparent 48%,
-      var(--band) 48%,
-      var(--band) 60%,
-      transparent 60%
-    ),
+  /* 2) Bande qui revient ↙ */
+  linear-gradient(168deg,
+    transparent 0,
+    transparent 46%,
+    var(--band)  46%,
+    var(--band)  58%,
+    transparent  58%
+  ),
 
-    /* Bande 3 ↘ */
-    linear-gradient(102deg,
-      transparent 0%,
-      transparent 68%,
-      var(--band) 68%,
-      var(--band) 80%,
-      transparent 80%
-    );
+  /* 3) Bande finale ↘ */
+  linear-gradient(192deg,
+    transparent 0,
+    transparent 72%,
+    var(--band)  72%,
+    var(--band)  84%,
+    transparent  84%
+  );
 
   background-repeat: no-repeat;
   background-size: 100% 100%;
