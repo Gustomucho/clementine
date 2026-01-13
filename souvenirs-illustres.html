@@ -1,19 +1,43 @@
 <!doctype html>
 <html lang="fr">
 <head>
+  <!-- ======================
+       SEO + Meta
+       ====================== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Souvenirs illustrés — Clémentine Lénelle</title>
-  <meta name="description" content="Souvenirs illustrés sur mesure : une rencontre, un lieu, une habitude, un détail. Une composition unique à offrir ou à garder." />
+  <meta name="description" content="Un souvenir illustré sur mesure : une rencontre, un lieu, une habitude, un détail. Une composition unique à offrir ou à garder." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://gustomucho.github.io/clementine/souvenirs-illustres.html" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Souvenirs illustrés — Clémentine Lénelle" />
+  <meta property="og:description" content="Une composition unique, dessinée sur mesure pour raconter une histoire." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gustomucho.github.io/clementine/souvenirs-illustres.html" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=1" />
+
+  <!-- Données structurées (Service) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Souvenirs illustrés",
+    "provider":{
+      "@type":"Person",
+      "name":"Clémentine Lénelle"
+    },
+    "areaServed":"BE",
+    "description":"Un souvenir illustré sur mesure : une composition unique à offrir ou à garder."
+  }
+  </script>
 </head>
 
 <body>
@@ -26,7 +50,6 @@
           <source media="(max-width: 860px)" srcset="assets/img/logo-c.png">
           <img class="brand-logo" src="assets/img/logo-clementine-lenelle.png" alt="Clémentine Lénelle">
         </picture>
-        <span class="sr-only">Clémentine Lénelle</span>
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
@@ -34,10 +57,9 @@
       </button>
 
       <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
-        <a class="nav-link is-active" href="souvenirs-illustres.html">Souvenirs illustrés</a>
+        <a class="nav-link is-active" href="souvenirs-illustres.html" aria-current="page">Souvenirs illustrés</a>
         <a class="nav-link" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">Souvenirs sonores</a>
-        <a class="nav-link" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">Graphisme & illustrations</a>
-        <a class="nav-link" href="shop.html" aria-disabled="true" tabindex="-1">Shop</a>
+        <a class="nav-link" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">Graphisme & illustration</a>
         <a class="nav-link" href="contact.html" aria-disabled="true" tabindex="-1">Contact · À propos</a>
       </nav>
     </div>
@@ -47,35 +69,43 @@
     <section class="section">
       <div class="container">
 
-        <h1 class="h1">Souvenirs illustrés</h1>
+        <header class="page-header">
+          <h1 class="h1">Souvenirs illustrés</h1>
+          <p class="lead">
+            <span class="yellow-pill-wrap">
+              Une rencontre, un lieu, une habitude, un détail qui revient — tout peut devenir une image à garder.
+            </span>
+          </p>
+        </header>
 
-        <p class="lead">
-          Une rencontre, un lieu, une habitude, un détail qui revient — tout est dessiné sur mesure
-          pour créer une composition unique.
-        </p>
+        <section class="content">
+          <h2 class="h2">Une composition unique</h2>
+          <p class="text">
+            Un souvenir illustré, c’est un dessin réalisé sur mesure, à partir de ton histoire :
+            un moment précis, une atmosphère, une maison de famille, une scène du quotidien, un lieu qui compte.
+          </p>
+          <p class="text">
+            L’objectif : rassembler les petits détails qui font la singularité d’une vie — et les voir prendre forme.
+          </p>
 
-        <p class="lead">
-          <span class="highlight">Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.</span>
-        </p>
+          <h2 class="h2">Pour offrir ou pour garder</h2>
+          <p class="text">
+            Un cadeau sensible et intime, à offrir à quelqu’un qu’on aime (ou à soi-même),
+            pour garder une trace douce et tangible.
+          </p>
 
-        <div class="scribbles" aria-hidden="true">
-          <div class="scribble-line"></div>
-          <div class="scribble-line"></div>
-          <div class="scribble-line"></div>
-          <div class="scribble-line"></div>
-        </div>
+          <div class="cta-row">
+            <a class="btn btn-small" href="contact.html" aria-disabled="true" tabindex="-1">Demander un devis</a>
+            <a class="btn btn-small" href="index.html">Retour à l’accueil</a>
+          </div>
 
-        <h2 class="h2">Comment ça se passe</h2>
-
-        <p class="text"><strong>1/</strong> On échange : tu me racontes ce que tu veux garder (même en quelques mots).</p>
-        <p class="text"><strong>2/</strong> Je compose : j’équilibre les détails, je dessine, et l’histoire prend forme.</p>
-        <p class="text"><strong>3/</strong> Tu gardes près de toi : une composition unique, prête à être offerte ou encadrée.</p>
-
-        <div style="margin-top:18px;">
-          <a class="btn" href="contact.html" aria-disabled="true" tabindex="-1">Créer mon souvenir illustré</a>
-          <span style="display:inline-block; width:10px;"></span>
-          <a class="btn" href="index.html">Retour accueil</a>
-        </div>
+          <!-- Placeholders propres (SEO + structure), à remplacer plus tard -->
+          <div class="note">
+            <p class="text">
+              <strong>À compléter :</strong> ici tu pourras ajouter des exemples (images), des formats, des délais et une FAQ.
+            </p>
+          </div>
+        </section>
 
       </div>
     </section>
@@ -83,10 +113,10 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="footer-text">© <span id="year"></span> Clémentine Lénelle — Graphiste · Illustratrice · Podcast</p>
+      <p class="footer-text">© <span id="year"></span> Clémentine Lénelle</p>
       <div class="footer-links">
-        <a href="mentions-legales.html" aria-disabled="true" tabindex="-1">Mentions légales</a>
-        <a href="mentions-legales.html" aria-disabled="true" tabindex="-1">Politique de confidentialité</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="mentions-legales.html">Politique de confidentialité</a>
       </div>
     </div>
   </footer>
