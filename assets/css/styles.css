@@ -18,19 +18,17 @@
   --font-title: "Playfair Display SC", serif;
   --font-body: "Raleway", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
-  /* Réglages bande “zigzag” */
-  --header-h: 78px;      /* hauteur approximative du header */
-  --band-tilt: -12deg;   /* pente : proche de 0 = moins pentue */
+  /* Réglages ruban “zigzag” (fond) */
+  --header-h: 78px;      /* hauteur approx du header sticky */
+  --band-top-gap: 18px;  /* distance sous le header */
   --band-opacity: .92;   /* intensité du beige */
-  --band-top-gap: 18px;  /* “quelques cm” sous le header */
 }
 
 *{ box-sizing: border-box; }
 html, body{ height: 100%; }
 
 /* =========================================================
-   BODY : fond blanc + bande zigzag fixe via pseudo-élément
-   IMPORTANT : on ne met plus de background-image directement sur body.
+   BODY : fond blanc + ruban zigzag fixe via pseudo-élément
    ========================================================= */
 body{
   margin: 0;
@@ -39,43 +37,41 @@ body{
   font-family: var(--font-body);
   line-height: 1.6;
   position: relative;
-  overflow-x: hidden; /* évite scroll horizontal dû à la bande inclinée */
+  overflow-x: hidden; /* évite scroll horizontal dû au ruban */
 }
 
-/* Bande zigzag fixe (effet “papier découpé”), derrière tout */
+/* =========================================================
+   Ruban “zigzag” fixe
+   - L’idée : on dessine LA FORME du ruban avec clip-path.
+   - Il part en haut à gauche, descend vers la droite, revient à gauche,
+     puis repart vers la droite (comme ton dessin).
+   ========================================================= */
 body::before{
   content: "";
   position: fixed;
-  left: -20%;
+  left: -10%;
   top: calc(var(--header-h) + var(--band-top-gap));
-  width: 140%;
+  width: 120%;
   height: calc(100vh - var(--header-h) - var(--band-top-gap));
   z-index: -1;
   pointer-events: none;
 
   background: rgba(250,242,228,var(--band-opacity));
 
-  /* Inclinaison du ruban */
-  transform: rotate(var(--band-tilt));
-  transform-origin: top left;
-
-  /* Bords “zigzag” (haut + bas) */
+  /* Ruban en “S” (zigzag vertical) :
+     On définit le bord gauche (de haut en bas), puis le bord droit (de bas en haut). */
   clip-path: polygon(
-    /* haut */
-    0% 30%,
-    5% 28%, 10% 30%, 15% 28%, 20% 30%,
-    25% 28%, 30% 30%, 35% 28%, 40% 30%,
-    45% 28%, 50% 30%, 55% 28%, 60% 30%,
-    65% 28%, 70% 30%, 75% 28%, 80% 30%,
-    85% 28%, 90% 30%, 95% 28%, 100% 30%,
+    /* Bord gauche (haut -> bas) */
+    0%  0%,    /* démarre en haut à gauche */
+    52% 33%,   /* descend vers la droite */
+    8%  66%,   /* revient vers la gauche */
+    60% 100%,  /* repart vers la droite en bas */
 
-    /* bas */
-    100% 70%,
-    95% 72%, 90% 70%, 85% 72%, 80% 70%,
-    75% 72%, 70% 70%, 65% 72%, 60% 70%,
-    55% 72%, 50% 70%, 45% 72%, 40% 70%,
-    35% 72%, 30% 70%, 25% 72%, 20% 70%,
-    15% 72%, 10% 70%, 5% 72%, 0% 70%
+    /* Bord droit (bas -> haut) */
+    92% 100%,  /* largeur du ruban */
+    40% 66%,
+    84% 33%,
+    28% 0%
   );
 }
 
@@ -270,7 +266,7 @@ a:hover{ text-decoration: underline; }
 }
 
 /* ======================
-   Boutons (arrondis, simples)
+   Boutons
    ====================== */
 .btn{
   display: inline-flex;
@@ -309,6 +305,7 @@ a:hover{ text-decoration: underline; }
 
 /* ======================
    Capsules jaunes
+   (Raleway 300 + texte teal comme demandé)
    ====================== */
 .yellow-pill{
   display: inline-block;
@@ -320,7 +317,7 @@ a:hover{ text-decoration: underline; }
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   max-width: 100%;
-  font-weight: 600;
+  font-weight: 300; /* ✅ plus épais que 100, mais “light” */
 }
 
 .yellow-pill-wrap{
@@ -332,16 +329,14 @@ a:hover{ text-decoration: underline; }
   line-height: 1.6;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  font-weight: 600;
+  font-weight: 300; /* ✅ */
 }
 
 /* ======================
    Accueil
-   - home-hero : on ajoute un padding-top pour “respirer” sous le header
-   - le zigzag est sur body::before (fixe)
    ====================== */
 .home-hero{
-  padding: 88px 0 70px; /* démarre visuellement sous le header */
+  padding: 88px 0 70px;
 }
 
 .home-title{ margin: 22px 0 24px 0; }
