@@ -1,109 +1,72 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Graphisme & illustrations — Clémentine Lénelle</title>
-  <meta name="description" content="Graphiste et illustratrice : faire-parts, invitations, couvertures, identités visuelles, fresques murales, vitrines illustrées. Projets sur mesure." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://gustomucho.github.io/clementine/graphisme-illustrations.html" />
+  // ======================
+  // Lightbox (zoom images)
+  // - Ouvre au clic sur [data-lightbox]
+  // - Ferme: ESC / clic dehors / bouton
+  // - Navigue: ← →
+  // ======================
+  (function initLightbox(){
+    const lightbox = document.getElementById("lightbox");
+    const imgEl = document.getElementById("lightboxImg");
+    const titleEl = document.getElementById("lightboxTitle");
+    if (!lightbox || !imgEl) return;
 
-  <meta property="og:title" content="Graphisme & illustrations — Clémentine Lénelle" />
-  <meta property="og:description" content="Des créations poétiques et cohérentes, pensées comme une collaboration." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://gustomucho.github.io/clementine/graphisme-illustrations.html" />
+    const items = Array.from(document.querySelectorAll("[data-lightbox]"));
+    if (!items.length) return;
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=300" />
-</head>
+    let index = 0;
 
-<body>
-  <a class="skip-link" href="#contenu">Aller au contenu</a>
+    function openAt(i){
+      index = (i + items.length) % items.length;
+      const node = items[index];
+      const src = node.getAttribute("data-lightbox");
+      const caption = node.getAttribute("data-caption") || "Aperçu";
+      const alt = node.querySelector("img")?.getAttribute("alt") || caption;
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="Retour à l'accueil">
-        <picture>
-          <source media="(max-width: 860px)" srcset="assets/img/logo-c.png">
-          <img class="brand-logo" src="assets/img/logo-clementine-lenelle.png" alt="Clémentine Lénelle">
-        </picture>
-      </a>
+      imgEl.src = src;
+      imgEl.alt = alt;
+      if (titleEl) titleEl.textContent = caption;
 
-      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-nav">
-        <span class="nav-toggle-bars" aria-hidden="true"></span>
-      </button>
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
 
-      <nav id="site-nav" class="site-nav" aria-label="Navigation principale">
-        <a class="nav-link" href="souvenirs-illustres.html">Souvenirs illustrés</a>
-        <a class="nav-link" href="souvenirs-sonores.html">Souvenirs sonores</a>
-        <a class="nav-link is-active" href="graphisme-illustrations.html" aria-current="page">Graphisme & illustration</a>
-        <a class="nav-link" href="shop.html">Shop</a>
-        <a class="nav-link" href="contact.html">Contact · À propos</a>
-      </nav>
-    </div>
-  </header>
+    function close(){
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      imgEl.src = "";
+      document.body.style.overflow = "";
+    }
 
-  <main id="contenu">
-    <section class="section">
-      <div class="container">
+    function next(){ openAt(index + 1); }
+    function prev(){ openAt(index - 1); }
 
-        <header class="page-header">
-          <h1 class="h1">Graphisme et illustrations</h1>
-          <p class="lead">
-            <span class="yellow-pill-wrap">
-              Des projets sur mesure, pensés comme une collaboration.
-            </span>
-          </p>
-        </header>
+    // Click / keyboard on thumbnails
+    items.forEach((node, i) => {
+      node.addEventListener("click", () => openAt(i));
+      node.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openAt(i);
+        }
+      });
+    });
 
-        <section class="content">
-          <p class="text">
-            Graphiste et illustratrice, j’accompagne particuliers, associations et entreprises dans la mise en image de leurs projets.
-            De la création de faire-parts et d’invitations aux illustrations, couvertures de magazines, identités visuelles,
-            fresques murales ou vitrines illustrées, chaque projet est pensé comme une collaboration.
-          </p>
+    // Buttons
+    lightbox.querySelector("[data-lightbox-close]")?.addEventListener("click", close);
+    lightbox.querySelector("[data-lightbox-next]")?.addEventListener("click", next);
+    lightbox.querySelector("[data-lightbox-prev]")?.addEventListener("click", prev);
 
-          <p class="text">
-            J’aime prendre le temps de traduire avec vous vos idées, vos valeurs et vos envies en images sensibles et sur mesure,
-            afin de donner naissance à des créations uniques, poétiques et cohérentes, qu’il s’agisse de projets naissants
-            ou déjà existants.
-          </p>
+    // Click outside content closes
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) close();
+    });
 
-          <p class="text"><strong>Voici un aperçu de mon travail.</strong></p>
-
-          <div class="note">
-            <p class="text">
-              <strong>Pour en voir plus :</strong><br>
-              <a href="https://www.instagram.com/clementine.lenelle/" target="_blank" rel="noopener">Instagram</a> ·
-              <a href="https://clementigre-tine.tumblr.com/" target="_blank" rel="noopener">Tumblr</a> ·
-              <a href="https://www.facebook.com/clementinelenellegraphiste/" target="_blank" rel="noopener">Facebook</a>
-            </p>
-          </div>
-
-          <div class="cta-row">
-            <a class="btn btn-small" href="contact.html">Contactez-moi pour mettre en image votre projet</a>
-          </div>
-
-        </section>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="footer-text">© <span id="year"></span> Clémentine Lénelle</p>
-      <div class="footer-links" aria-label="Liens">
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="politique-confidentialite.html">Politique de confidentialité</a>
-        <a href="https://www.instagram.com/clementine.lenelle/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://clementigre-tine.tumblr.com/" target="_blank" rel="noopener">Tumblr</a>
-        <a href="https://www.facebook.com/clementinelenellegraphiste/" target="_blank" rel="noopener">Facebook</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
+    // Global keys
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+  })();
