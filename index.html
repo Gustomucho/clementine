@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=400" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=401" />
 
   <script type="application/ld+json">
   {
@@ -34,51 +34,54 @@
   }
   </script>
 
-  <!-- Styles ultra-locaux à la page (pour positionner les images sans toucher au CSS global).
-       Si tu préfères, je te les déplace dans styles.css ensuite. -->
+  <!-- Styles locaux à la page : images plus petites, sous les CTA, responsive -->
   <style>
-    /* Image card (propre, simple, cohérent avec ton style) */
-    .card-figure{
-      margin: 14px 0 14px 0;
-      max-width: 420px;           /* évite “trop grand” */
-    }
-    .card-figure img{
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 18px;        /* doux, discret */
-    }
-
-    /* Sur desktop : image légèrement alignée (rythme visuel) */
-    @media (min-width: 981px){
-      .two-col .card:nth-child(1) .card-figure{ max-width: 440px; }
-      .two-col .card:nth-child(2) .card-figure{ max-width: 360px; }
-    }
-
-    /* Section 3 : image à droite sur desktop, au-dessus sur mobile */
-    .project-block{
-      display: grid;
-      gap: 22px;
-      align-items: start;
-    }
-    @media (min-width: 981px){
-      .project-block{
-        grid-template-columns: 1.2fr .8fr;
-      }
-      .project-block .project-figure{
-        justify-self: end;
-        max-width: 420px;
-      }
-    }
+    /* Images sous CTA : petites, centrées, et responsives */
+    .card-figure,
     .project-figure{
-      margin: 0;
-      max-width: 520px;
-    }
-    .project-figure img{
+      margin: 16px 0 0 0;       /* espace après le bouton */
       width: 100%;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    /* Taille contrôlée sur desktop */
+    .card-figure img{
+      width: min(260px, 100%);
       height: auto;
       display: block;
       border-radius: 18px;
+    }
+
+    /* La 2e colonne est souvent plus “fine” : un poil plus petite */
+    @media (min-width: 981px){
+      .two-col .card:nth-child(2) .card-figure img{
+        width: min(230px, 100%);
+      }
+    }
+
+    /* Section 3 : image sous le CTA aussi */
+    .project-figure img{
+      width: min(300px, 100%);
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+
+    /* Sur mobile : réduire un peu et centrer (plus joli) */
+    @media (max-width: 980px){
+      .card-figure,
+      .project-figure{
+        justify-content: center;
+      }
+
+      .card-figure img{
+        width: min(240px, 92vw);
+      }
+
+      .project-figure img{
+        width: min(260px, 92vw);
+      }
     }
   </style>
 </head>
@@ -133,15 +136,6 @@
           <article class="card">
             <h2 class="h2">pour les yeux</h2>
 
-            <!-- Image thème 1 -->
-            <figure class="card-figure">
-              <img
-                src="assets/img/accueil/accueil-souvenirs-illustres.webp"
-                alt="Illustration de souvenirs : composition dessinée sur mesure"
-                loading="lazy"
-                decoding="async">
-            </figure>
-
             <p class="lead">
               <span class="yellow-pill-wrap">
                 Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.
@@ -160,20 +154,20 @@
             <p class="cta">
               <a class="btn btn-small" href="souvenirs-illustres.html">Souvenirs illustrés</a>
             </p>
+
+            <!-- Image thème 1 (SOUS le CTA) -->
+            <figure class="card-figure">
+              <img
+                src="assets/img/accueil/accueil-souvenirs-illustres.webp"
+                alt="Illustration de souvenirs : composition dessinée sur mesure"
+                loading="lazy"
+                decoding="async">
+            </figure>
           </article>
 
           <!-- Colonne 2: oreilles -->
           <article class="card">
             <h2 class="h2">pour les oreilles</h2>
-
-            <!-- Image thème 2 -->
-            <figure class="card-figure">
-              <img
-                src="assets/img/accueil/accueil-souvenirs-sonores.webp"
-                alt="Souvenir sonore : une voix enregistrée pour un podcast privé"
-                loading="lazy"
-                decoding="async">
-            </figure>
 
             <p class="lead">
               <span class="yellow-pill">
@@ -198,6 +192,15 @@
             <p class="cta">
               <a class="btn btn-small" href="souvenirs-sonores.html">Souvenirs sonores</a>
             </p>
+
+            <!-- Image thème 2 (SOUS le CTA) -->
+            <figure class="card-figure">
+              <img
+                src="assets/img/accueil/accueil-souvenirs-sonores.webp"
+                alt="Souvenir sonore : une voix enregistrée pour un podcast privé"
+                loading="lazy"
+                decoding="async">
+            </figure>
           </article>
 
         </div>
@@ -232,16 +235,17 @@
               <p class="cta">
                 <a class="btn btn-small" href="graphisme-illustrations.html">Graphisme & illustration</a>
               </p>
+
+              <!-- Image thème 3 (SOUS le CTA) -->
+              <figure class="project-figure">
+                <img
+                  src="assets/img/accueil/accueil-graphisme-illustration.webp"
+                  alt="Graphisme et illustration : création visuelle sur mesure"
+                  loading="lazy"
+                  decoding="async">
+              </figure>
             </div>
 
-            <!-- Image thème 3 -->
-            <figure class="project-figure">
-              <img
-                src="assets/img/accueil/accueil-graphisme-illustration.webp"
-                alt="Graphisme et illustration : création visuelle sur mesure"
-                loading="lazy"
-                decoding="async">
-            </figure>
           </div>
 
         </div>
