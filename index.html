@@ -79,93 +79,103 @@
   </header>
 
   <!-- ======================
-       Contenu principal
-       ====================== -->
-  <main id="contenu">
-    <section class="section">
-      <div class="container">
+     Contenu principal
+     ====================== -->
+<main id="contenu">
 
-        <!-- H1 unique (SEO: un seul H1 clair) -->
-        <h1 class="h1 home-title">Gardez une trace de vos souvenirs</h1>
+  <!-- HERO avec la diagonale (commence sous le header via CSS .home-hero) -->
+  <section class="home-hero" aria-label="Souvenirs : yeux et oreilles">
+    <div class="container">
 
-        <!-- Deux colonnes : yeux / oreilles -->
-        <div class="two-col">
-          <!-- Colonne 1: yeux -->
-          <article class="card">
-            <h2 class="h2">pour les yeux</h2>
+      <!-- H1 unique (SEO: un seul H1 clair) -->
+      <h1 class="h1 home-title">Gardez une trace de vos souvenirs</h1>
 
-            <p class="lead">
-              <span class="yellow-pill-wrap">
-                Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.
-              </span>
-            </p>
+      <!-- Deux colonnes : yeux / oreilles -->
+      <div class="two-col">
 
-            <p class="text">
-              Les souvenirs illustrés, c’est une rencontre, un lieu, une habitude, un détail qui revient —
-              tout est dessiné sur mesure pour créer une composition unique.
-            </p>
-
-            <p class="text">
-              Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.
-            </p>
-
-            <p class="cta">
-              <a class="btn btn-small" href="souvenirs-illustres.html">Souvenirs illustrés</a>
-            </p>
-          </article>
-
-          <!-- Colonne 2: oreilles -->
-          <article class="card">
-            <h2 class="h2">pour les oreilles</h2>
-
-            <p class="lead">
-              <span class="yellow-pill">
-                Une histoire, ou juste une voix à capturer.
-              </span>
-            </p>
-
-            <p class="text">
-              Les souvenirs sonores permettent d’enregistrer une voix, une histoire, un moment de vie.
-              On parle librement, sans pression, pour garder la voix de ceux qu’on aime.
-            </p>
-
-            <p class="text">
-              Un souvenir intime à offrir ou à garder, pour aujourd’hui et pour demain.
-            </p>
-
-            <p class="cta">
-              <a class="btn btn-small" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">Souvenirs sonores</a>
-            </p>
-          </article>
-        </div>
-
-        <!-- Bloc "projets" en dessous (plus d’espace vertical via CSS) -->
-        <section class="one-col" aria-label="Graphisme et illustration">
-          <h2 class="h1 h1-secondary">Donnez forme et couleurs à vos projets</h2>
+        <!-- Colonne 1: yeux -->
+        <article class="card">
+          <h2 class="h2">pour les yeux</h2>
 
           <p class="lead">
             <span class="yellow-pill-wrap">
-              Je mets mon regard de graphiste et d’illustratrice au service de vos projets.
+              Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.
             </span>
           </p>
 
           <p class="text">
-            Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
-            fresques murales ou illustrations saisonnières pour vitrines.
+            Les souvenirs illustrés, c’est une rencontre, un lieu, une habitude, un détail qui revient —
+            tout est dessiné sur mesure pour créer une composition unique.
           </p>
 
           <p class="text">
-            Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente.
+            Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.
           </p>
 
           <p class="cta">
-            <a class="btn btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">Graphisme & illustration</a>
+            <a class="btn btn-small" href="souvenirs-illustres.html">Souvenirs illustrés</a>
           </p>
-        </section>
+        </article>
+
+        <!-- Colonne 2: oreilles -->
+        <article class="card">
+          <h2 class="h2">pour les oreilles</h2>
+
+          <p class="lead">
+            <span class="yellow-pill">
+              Une histoire, ou juste une voix à capturer.
+            </span>
+          </p>
+
+          <p class="text">
+            Les souvenirs sonores permettent d’enregistrer une voix, une histoire, un moment de vie.
+            On parle librement, sans pression, pour garder la voix de ceux qu’on aime.
+          </p>
+
+          <p class="text">
+            Un souvenir intime à offrir ou à garder, pour aujourd’hui et pour demain.
+          </p>
+
+          <p class="cta">
+            <a class="btn btn-small" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">Souvenirs sonores</a>
+          </p>
+        </article>
 
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- Section en dessous (hors diagonale) -->
+  <section class="section" aria-label="Graphisme et illustration">
+    <div class="container">
+
+      <div class="one-col">
+        <h2 class="h1 h1-secondary">Donnez forme et couleurs à vos projets</h2>
+
+        <p class="lead">
+          <span class="yellow-pill-wrap">
+            Je mets mon regard de graphiste et d’illustratrice au service de vos projets.
+          </span>
+        </p>
+
+        <p class="text">
+          Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
+          fresques murales ou illustrations saisonnières pour vitrines.
+        </p>
+
+        <p class="text">
+          Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente.
+        </p>
+
+        <p class="cta">
+          <a class="btn btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">Graphisme & illustration</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
 
   <!-- ======================
        Footer (SEO + confiance)
