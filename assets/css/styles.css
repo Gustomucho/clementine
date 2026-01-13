@@ -32,20 +32,6 @@ body{
   font-family: var(--font-body);
   line-height: 1.6;
 
-  /* Une seule bande beige diagonale */
-  background-image: linear-gradient(
-    var(--band-angle),
-    rgba(250,242,228,0) 0%,
-    rgba(250,242,228,0) 20%,
-    rgba(250,242,228,.92) 20%,
-    rgba(250,242,228,.92) 58%,
-    rgba(250,242,228,0) 58%,
-    rgba(250,242,228,0) 100%
-  );
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 img{ max-width: 100%; height: auto; display: block; border: 0; }
@@ -402,4 +388,24 @@ a:hover{ text-decoration: underline; }
   gap: 14px;
   font-size: 13px;
   color: rgba(73,13,11,.68);
+}
+
+/* ======================
+   Bande diagonale accueil
+   ====================== */
+.home-hero{
+  position: relative;
+  padding: 90px 0 120px 0; /* espace sous le header */
+  background-image: linear-gradient(
+    30deg, /* moins pentue */
+    rgba(250,242,228,0) 0%,
+    rgba(250,242,228,0) 25%,
+    rgba(250,242,228,.95) 25%,
+    rgba(250,242,228,.95) 70%,
+    rgba(250,242,228,0) 70%,
+    rgba(250,242,228,0) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
