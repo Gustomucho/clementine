@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <!-- ======================
-       SEO + Meta essentiels
-       ====================== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Clémentine Lénelle — Souvenirs illustrés & souvenirs sonores</title>
@@ -11,27 +8,18 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://gustomucho.github.io/clementine/" />
 
-  <!-- Open Graph (partages réseaux) -->
   <meta property="og:title" content="Clémentine Lénelle — Souvenirs illustrés & souvenirs sonores" />
   <meta property="og:description" content="Gardez une trace de vos souvenirs : pour les yeux et pour les oreilles." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gustomucho.github.io/clementine/" />
-  <!-- Optionnel : ajoute une image si tu en as une -->
-  <!-- <meta property="og:image" content="https://gustomucho.github.io/clementine/assets/img/og-image.jpg" /> -->
 
-  <!-- ======================
-       Polices Google Fonts
-       - Playfair Display SC 700
-       - Raleway 100 / 300 / 400 / 500
-       ====================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
 
-  <!-- CSS (change v=… si cache) -->
- <link rel="stylesheet" href="assets/css/styles.css?v=999">
+  <!-- Change v=… si besoin pour casser le cache -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=200" />
 
-  <!-- Données structurées (SEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,24 +27,16 @@
     "name": "Clémentine Lénelle",
     "jobTitle": "Graphiste et illustratrice",
     "url": "https://gustomucho.github.io/clementine/",
-    "knowsAbout": ["Illustration", "Graphisme", "Souvenirs illustrés", "Podcast privé", "Souvenirs sonores"],
-    "sameAs": []
+    "knowsAbout": ["Illustration", "Graphisme", "Souvenirs illustrés", "Podcast privé", "Souvenirs sonores"]
   }
   </script>
 </head>
 
 <body class="home-page">
-  <!-- Skip link (accessibilité) -->
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-  <!-- ======================
-       Header + navigation
-       - Desktop: menu horizontal
-       - Mobile: hamburger + menu déroulant
-       ====================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Le logo renvoie à l’accueil (pas de lien “Accueil” dans le menu) -->
       <a class="brand" href="index.html" aria-label="Retour à l'accueil">
         <picture>
           <source media="(max-width: 860px)" srcset="assets/img/logo-c.png">
@@ -78,108 +58,95 @@
     </div>
   </header>
 
-  <!-- ======================
-     Contenu principal
-     ====================== -->
-<main id="contenu">
+  <main id="contenu">
 
-  <!-- HERO avec la diagonale (commence sous le header via CSS .home-hero) -->
-  <section class="home-hero" aria-label="Souvenirs : yeux et oreilles">
-    <div class="container">
+    <!-- HERO : le contenu s’aligne sur la bande zigzag (qui est fixe via body::before) -->
+    <section class="home-hero" aria-label="Souvenirs : yeux et oreilles">
+      <div class="container">
 
-      <!-- H1 unique (SEO: un seul H1 clair) -->
-      <h1 class="h1 home-title">Gardez une trace de vos souvenirs</h1>
+        <h1 class="h1 home-title">Gardez une trace de vos souvenirs</h1>
 
-      <!-- Deux colonnes : yeux / oreilles -->
-      <div class="two-col">
+        <div class="two-col">
+          <article class="card">
+            <h2 class="h2">pour les yeux</h2>
 
-        <!-- Colonne 1: yeux -->
-        <article class="card">
-          <h2 class="h2">pour les yeux</h2>
+            <p class="lead">
+              <span class="yellow-pill-wrap">
+                Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.
+              </span>
+            </p>
+
+            <p class="text">
+              Les souvenirs illustrés, c’est une rencontre, un lieu, une habitude, un détail qui revient —
+              tout est dessiné sur mesure pour créer une composition unique.
+            </p>
+
+            <p class="text">
+              Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.
+            </p>
+
+            <p class="cta">
+              <a class="btn btn-small" href="souvenirs-illustres.html">Souvenirs illustrés</a>
+            </p>
+          </article>
+
+          <article class="card">
+            <h2 class="h2">pour les oreilles</h2>
+
+            <p class="lead">
+              <span class="yellow-pill">
+                Une histoire, ou juste une voix à capturer.
+              </span>
+            </p>
+
+            <p class="text">
+              Les souvenirs sonores permettent d’enregistrer une voix, une histoire, un moment de vie.
+              On parle librement, sans pression, pour garder la voix de ceux qu’on aime.
+            </p>
+
+            <p class="text">
+              Un souvenir intime à offrir ou à garder, pour aujourd’hui et pour demain.
+            </p>
+
+            <p class="cta">
+              <a class="btn btn-small" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">Souvenirs sonores</a>
+            </p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section suivante (hors hero) -->
+    <section class="section" aria-label="Graphisme et illustration">
+      <div class="container">
+        <div class="one-col">
+          <h2 class="h1 h1-secondary">Donnez forme et couleurs à vos projets</h2>
 
           <p class="lead">
             <span class="yellow-pill-wrap">
-              Pour rassembler les petits moments qui, mis bout à bout, racontent une histoire.
+              Je mets mon regard de graphiste et d’illustratrice au service de vos projets.
             </span>
           </p>
 
           <p class="text">
-            Les souvenirs illustrés, c’est une rencontre, un lieu, une habitude, un détail qui revient —
-            tout est dessiné sur mesure pour créer une composition unique.
+            Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
+            fresques murales ou illustrations saisonnières pour vitrines.
           </p>
 
           <p class="text">
-            Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.
+            Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente.
           </p>
 
           <p class="cta">
-            <a class="btn btn-small" href="souvenirs-illustres.html">Souvenirs illustrés</a>
+            <a class="btn btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">Graphisme & illustration</a>
           </p>
-        </article>
-
-        <!-- Colonne 2: oreilles -->
-        <article class="card">
-          <h2 class="h2">pour les oreilles</h2>
-
-          <p class="lead">
-            <span class="yellow-pill">
-              Une histoire, ou juste une voix à capturer.
-            </span>
-          </p>
-
-          <p class="text">
-            Les souvenirs sonores permettent d’enregistrer une voix, une histoire, un moment de vie.
-            On parle librement, sans pression, pour garder la voix de ceux qu’on aime.
-          </p>
-
-          <p class="text">
-            Un souvenir intime à offrir ou à garder, pour aujourd’hui et pour demain.
-          </p>
-
-          <p class="cta">
-            <a class="btn btn-small" href="souvenirs-sonores.html" aria-disabled="true" tabindex="-1">Souvenirs sonores</a>
-          </p>
-        </article>
-
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Section en dessous (hors diagonale) -->
-  <section class="section" aria-label="Graphisme et illustration">
-    <div class="container">
+  </main>
 
-      <div class="one-col">
-        <h2 class="h1 h1-secondary">Donnez forme et couleurs à vos projets</h2>
-
-        <p class="lead">
-          <span class="yellow-pill-wrap">
-            Je mets mon regard de graphiste et d’illustratrice au service de vos projets.
-          </span>
-        </p>
-
-        <p class="text">
-          Faire-parts, invitations, couvertures de magazines, illustrations, identités visuelles,
-          fresques murales ou illustrations saisonnières pour vitrines.
-        </p>
-
-        <p class="text">
-          Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente.
-        </p>
-
-        <p class="cta">
-          <a class="btn btn-small" href="graphisme-illustrations.html" aria-disabled="true" tabindex="-1">Graphisme & illustration</a>
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-  <!-- ======================
-       Footer (SEO + confiance)
-       ====================== -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="footer-text">© <span id="year"></span> Clémentine Lénelle</p>
