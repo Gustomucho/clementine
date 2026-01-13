@@ -49,29 +49,37 @@ body{
 body::before{
   content: "";
   position: fixed;
-  left: -10%;
+
+  /* On déborde volontairement à gauche/droite pour éviter toute “pointe” visible */
+  left: -25%;
   top: calc(var(--header-h) + var(--band-top-gap));
-  width: 120%;
+  width: 150%;
   height: calc(100vh - var(--header-h) - var(--band-top-gap));
+
   z-index: -1;
   pointer-events: none;
 
   background: rgba(250,242,228,var(--band-opacity));
 
-  /* Ruban en “S” (zigzag vertical) :
-     On définit le bord gauche (de haut en bas), puis le bord droit (de bas en haut). */
+  /* Ruban serpentin ↘ puis ↙ puis ↘, avec largeur constante */
   clip-path: polygon(
-    /* Bord gauche (haut -> bas) */
-    0%  0%,    /* démarre en haut à gauche */
-    52% 33%,   /* descend vers la droite */
-    8%  66%,   /* revient vers la gauche */
-    60% 100%,  /* repart vers la droite en bas */
+    /* ===== Bord haut (gauche -> droite) ===== */
+    0%  12%,
+    35% 24%,
+    18% 44%,
+    62% 60%,
+    40% 78%,
+    78% 92%,
+    100% 86%,
 
-    /* Bord droit (bas -> haut) */
-    92% 100%,  /* largeur du ruban */
-    40% 66%,
-    84% 33%,
-    28% 0%
+    /* ===== Bord bas (droite -> gauche) ===== */
+    100% 98%,
+    72% 88%,
+    36% 74%,
+    58% 56%,
+    14% 40%,
+    32% 20%,
+    0%  22%
   );
 }
 
