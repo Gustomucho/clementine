@@ -208,6 +208,7 @@ a:hover{ text-decoration: underline; }
   display: flex;
   align-items: center;
   gap: 18px;
+  flex-wrap: nowrap; /* garde une seule ligne sur desktop */
 }
 
 /* Onglets */
@@ -218,6 +219,9 @@ a:hover{ text-decoration: underline; }
   padding: 6px 10px;
   border-radius: 10px;
   text-decoration: none;
+  white-space: normal; /* autorise le texte à passer sur 2 lignes */
+  text-align: center;
+  line-height: 1.35;
 }
 
 /* Hover: léger fond blanc */
@@ -241,6 +245,8 @@ a:hover{ text-decoration: underline; }
   opacity: .55;
   cursor: not-allowed;
 }
+
+/* Pas de wrap horizontal avant la version mobile : la barre reste sur 1 ligne */
 
 /* ======================
    Mobile menu
@@ -363,7 +369,7 @@ a:hover{ text-decoration: underline; }
 /* ======================
    Accueil
    ====================== */
-.home-hero{ padding: 88px 0 70px; }
+.home-hero{ padding: 44px 0 70px; }
 .home-title{ margin: 22px 0 24px 0; }
 .card{ max-width: 520px; }
 .cta{ margin-top: 14px; }
@@ -377,13 +383,13 @@ a:hover{ text-decoration: underline; }
 }
 
 .one-col{
-  margin-top: 110px;
+  margin-top: 55px;
   max-width: 720px;
 }
 
 @media (max-width: 980px){
   .two-col{ grid-template-columns: 1fr; gap: 34px; }
-  .one-col{ margin-top: 60px; }
+  .one-col{ margin-top: 30px; }
 }
 
 /* ======================

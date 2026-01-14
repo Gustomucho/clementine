@@ -17,6 +17,75 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css?v=300" />
+  <style>
+    .steps{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 18px 0 12px;
+    }
+    .step-card{
+      border-radius: 18px;
+      border: 1px solid rgba(73,13,11,.18);
+      background: rgba(255,255,255,.85);
+      padding: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.06);
+    }
+    .step-card strong{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(236,66,61,.15);
+      color: var(--red);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .step-card p{
+      margin: 0;
+      font-size: 15px;
+      color: rgba(73,13,11,.85);
+    }
+
+    .testimonials{
+      margin: 32px 0;
+      padding: 26px;
+      border-radius: 20px;
+      background: rgba(250,242,228,.65);
+    }
+    .testimonials .h2{ margin-bottom: 14px; }
+    .testimonial-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .testimonial-card{
+      display: flex;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+    .testimonial-img{
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .testimonial-quote{
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    .testimonial-name{
+      font-size: 14px;
+      color: rgba(73,13,11,.7);
+      margin: 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -39,7 +108,7 @@
         <a class="nav-link" href="souvenirs-illustres.html">Souvenirs illustrés</a>
         <a class="nav-link is-active" href="souvenirs-sonores.html" aria-current="page">Souvenirs sonores</a>
         <a class="nav-link" href="graphisme-illustrations.html">Graphisme & illustration</a>
-        <a class="nav-link" href="shop.html">Shop</a>
+        <a class="nav-link" href="shop.html" target="_blank" rel="noopener">Shop</a>
         <a class="nav-link" href="contact.html">Contact · À propos</a>
       </nav>
     </div>
@@ -81,12 +150,20 @@
           </p>
 
           <h2 class="h2">Concrètement, comment ça marche&nbsp;?</h2>
-          <p class="text">1/ On s’appelle pour discuter de votre envie</p>
-          <p class="text">2/ J’enregistre ces récits chez vous, en toute bienveillance. Vous parlez librement, sans pression, pendant le temps qu’il faut.</p>
-          <p class="text">
-            3/ Magie, magie! Après pas mal d’heures de montage, vous recevez votre podcast perso, avec votre voix uniquement.
-            Oui, j’essaie au max de ne pas laisser de traces de ma présence, donc c’est 100% pur vous. Allez, 99,9 % !)
-          </p>
+          <div class="steps" aria-label="Étapes pour créer un souvenir sonore">
+            <article class="step-card">
+              <strong>1</strong>
+              <p>On s’appelle pour poser calmement vos envies, vos questions et le ton que vous souhaitez donner à cet enregistrement.</p>
+            </article>
+            <article class="step-card">
+              <strong>2</strong>
+              <p>Je viens enregistrer chez vous (ou là où vous êtes bien). On discute, on rit, vous parlez librement sans pression pendant le temps qu’il faut.</p>
+            </article>
+            <article class="step-card">
+              <strong>3</strong>
+              <p>Après montage, vous recevez votre podcast privé avec uniquement votre voix. Une trace douce, fidèle et prête à être réécoutée demain.</p>
+            </article>
+          </div>
 
           <p class="text">
             Ces souvenirs sonores sont souvent offerts à quelqu’un qu’on aime, à sa famille, à ses enfants.
@@ -101,16 +178,30 @@
 
           <div class="cta-row">
             <a class="btn btn-small" href="contact.html">Créer un souvenir sonore</a>
+            <a class="btn btn-small" href="#" aria-disabled="true" tabindex="-1">Écouter “Le Secret de Bonne-Ma”</a>
+            <span class="text" style="font-size:13px; color: rgba(73,13,11,.65);">mon docu sonore sur ma grand-mère.</span>
           </div>
 
-          <div class="note">
-            <p class="text">
-              <strong>Écouter :</strong> “Le Secret de Bonne-Ma”, mon docu sonore sur ma grand-mère.
-              <br>
-              <!-- Remplace le # par un lien (Spotify, SoundCloud, Apple Podcasts, etc.) -->
-              <a href="#" class="btn btn-small" aria-disabled="true" tabindex="-1">Écouter “Le Secret de Bonne-Ma”</a>
-            </p>
-          </div>
+          <section class="testimonials" aria-label="Témoignages autour des souvenirs sonores">
+            <h2 class="h2">Ils ont enregistré leurs voix</h2>
+            <div class="testimonial-grid">
+              <article class="testimonial-card">
+                <img class="testimonial-img" src="assets/img/accueil/accueil-souvenirs-sonores.webp" alt="Micro et souvenirs sonores" loading="lazy" decoding="async">
+                <div>
+                  <p class="text testimonial-quote">“Ma grand-mère racontait toujours les mêmes histoires de jeunesse. On a tout enregistré, et on lui a fait écouter le montage au repas de famille. Elle riait en entendant ses propres expressions.”</p>
+                  <p class="testimonial-name">— Élodie, Liège</p>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <img class="testimonial-img" src="assets/img/accueil/accueil-souvenirs-sonores.webp" alt="Souvenir sonore en préparation" loading="lazy" decoding="async">
+                <div>
+                  <p class="text testimonial-quote">“On voulait garder la voix de notre père pour les enfants. Clem’ a su mettre les silences, les respirations et les rires là où il fallait. On a aujourd’hui un podcast privé qu’on écoute dans la voiture.”</p>
+                  <p class="testimonial-name">— Karim &amp; Sarah, Paris</p>
+                </div>
+              </article>
+            </div>
+          </section>
 
         </section>
       </div>

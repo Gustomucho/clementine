@@ -21,36 +21,98 @@
   <!-- Styles uniquement pour la galerie + lightbox (isolés, ne cassent pas le CSS global) -->
   <style>
     /* ======================
-       Galerie “pêle-mêle”
-       - Cadre invisible (rectangle)
-       - Petites images, responsive
-       - Clic => lightbox
+       Galerie “pêle-mêle” + CTA
        ====================== */
     .mosaic{
       margin: 26px 0 18px;
-      /* “grand rectangle” stable */
       width: 100%;
       max-width: 980px;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 10;          /* garde un rectangle stable */
       position: relative;
-      overflow: hidden;
       border-radius: 18px;
-      /* discret, pour aider à lire l'ensemble */
       background: rgba(255,255,255,.35);
+      overflow: hidden;
     }
 
-    /* Grille interne : on fait un pêle-mêle propre via CSS columns + gap.
-       (plus simple à maintenir qu’un absolute-positionnement) */
+    /* Grille “pêle-mêle” : 3 lignes fixes, colonnes auto */
     .mosaic-grid{
+      display: grid;
       height: 100%;
       padding: 16px;
-      column-gap: 14px;
-      column-count: 4;
+      gap: 14px;
+      grid-auto-flow: column dense;
+      grid-auto-columns: minmax(180px, 1fr);
+      grid-auto-rows: calc((100% - (3 - 1) * 14px) / 3);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(73,13,11,.35) transparent;
+    }
+
+    .mosaic-grid::-webkit-scrollbar{
+      height: 8px;
+    }
+    .mosaic-grid::-webkit-scrollbar-track{
+      background: transparent;
+    }
+    .mosaic-grid::-webkit-scrollbar-thumb{
+      background: rgba(73,13,11,.35);
+      border-radius: 999px;
+    }
+
+    .cta-row--social{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .cta-row--social .btn{
+      white-space: nowrap;
+    }
+
+    /* Témoignages */
+    .testimonials{
+      margin: 34px 0;
+      padding: 28px;
+      border-radius: 22px;
+      background: rgba(250,242,228,.65);
+    }
+    .testimonials .h2{
+      margin-bottom: 16px;
+    }
+    .testimonial-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .testimonial-card{
+      display: flex;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+    }
+    .testimonial-img{
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .testimonial-quote{
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    .testimonial-name{
+      font-size: 14px;
+      color: rgba(73,13,11,.7);
+      margin: 0;
     }
 
     .mosaic-item{
       break-inside: avoid;
-      margin: 0 0 14px 0;
       display: block;
       cursor: zoom-in;
       outline: none;
@@ -61,6 +123,7 @@
       background: #fff;
       transform: rotate(var(--rot, 0deg));
       transition: transform .15s ease, box-shadow .15s ease;
+      height: 100%;
     }
 
     .mosaic-item:hover{
@@ -70,21 +133,53 @@
 
     .mosaic-item img{
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
+      object-fit: cover;              /* remplit sans déformer */
     }
 
-    /* Responsive : moins de colonnes */
+    /* Variations de tailles pour l’effet pêle-mêle */
+    .mosaic-item:nth-child(6n + 1),
+    .mosaic-item:nth-child(6n + 4){
+      grid-row: span 2;
+    }
+
+    .mosaic-item:nth-child(9n + 2){
+      grid-row: span 3;
+    }
+
+    /* Responsive : on simplifie progressivement */
     @media (max-width: 980px){
-      .mosaic{ max-width: 100%; aspect-ratio: 4 / 3; }
-      .mosaic-grid{ column-count: 3; }
+      .mosaic{ max-width: 100%; }
+      .mosaic-grid{
+        padding: 14px;
+        gap: 12px;
+        grid-auto-columns: minmax(150px, 1fr);
+      }
     }
     @media (max-width: 720px){
-      .mosaic{ aspect-ratio: auto; }
-      .mosaic-grid{ column-count: 2; padding: 12px; column-gap: 12px; }
+      .mosaic{
+        aspect-ratio: auto;
+        border-radius: 16px;
+      }
+      .mosaic-grid{
+        height: auto;
+        grid-auto-flow: row;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow: visible;
+      }
+      .mosaic-item{
+        height: auto;
+      }
+      .mosaic-item:nth-child(6n + 1),
+      .mosaic-item:nth-child(6n + 4),
+      .mosaic-item:nth-child(9n + 2){
+        grid-row: span 1;
+      }
     }
     @media (max-width: 420px){
-      .mosaic-grid{ column-count: 1; }
+      .mosaic-grid{ grid-template-columns: 1fr; }
     }
 
     /* ======================
@@ -188,7 +283,7 @@
         <a class="nav-link" href="souvenirs-illustres.html">Souvenirs illustrés</a>
         <a class="nav-link" href="souvenirs-sonores.html">Souvenirs sonores</a>
         <a class="nav-link is-active" href="graphisme-illustrations.html" aria-current="page">Graphisme & illustration</a>
-        <a class="nav-link" href="shop.html">Shop</a>
+        <a class="nav-link" href="shop.html" target="_blank" rel="noopener">Shop</a>
         <a class="nav-link" href="contact.html">Contact · À propos</a>
       </nav>
     </div>
@@ -369,17 +464,32 @@
             </div>
           </section>
 
-          <div class="note">
-            <p class="text">
-              <strong>Pour en voir plus :</strong><br>
-              <a href="https://www.instagram.com/clementine.lenelle/" target="_blank" rel="noopener">Instagram</a> ·
-              <a href="https://clementigre-tine.tumblr.com/" target="_blank" rel="noopener">Tumblr</a> ·
-              <a href="https://www.facebook.com/clementinelenellegraphiste/" target="_blank" rel="noopener">Facebook</a>
-            </p>
-          </div>
+          <section class="testimonials" aria-label="Témoignages clients">
+            <h2 class="h2">Des projets qui laissent une trace</h2>
+            <div class="testimonial-grid">
+              <article class="testimonial-card">
+                <img class="testimonial-img" src="assets/img/graphisme/graphisme-projet-04.webp" alt="Projet graphisme sur mesure" loading="lazy" decoding="async">
+                <div>
+                  <p class="text testimonial-quote">“On avait besoin d’une vitrine qui raconte notre café sans ressembler à celle d’à côté. Clem’ a observé notre lieu, a croqué nos plantes, et on a aujourd’hui une façade qui fait sourire les passants.”</p>
+                  <p class="testimonial-name">— Rania, fondatrice de Chez Lila</p>
+                </div>
+              </article>
 
-          <div class="cta-row">
+              <article class="testimonial-card">
+                <img class="testimonial-img" src="assets/img/graphisme/graphisme-projet-12.webp" alt="Illustration personnalisée pour un livre" loading="lazy" decoding="async">
+                <div>
+                  <p class="text testimonial-quote">“Pour notre collection jeunesse, elle a mêlé aquarelle et typo à la main. Les libraires nous parlent souvent de la couverture avant même d’ouvrir le livre.”</p>
+                  <p class="testimonial-name">— Joëlle, éditrice</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <div class="cta-row cta-row--social" aria-label="Contact et réseaux">
             <a class="btn btn-small" href="contact.html">Contactez-moi pour mettre en image votre projet</a>
+            <a class="btn btn-small" href="https://www.instagram.com/clementine.lenelle/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn btn-small" href="https://clementigre-tine.tumblr.com/" target="_blank" rel="noopener">Tumblr</a>
+            <a class="btn btn-small" href="https://www.facebook.com/clementinelenellegraphiste/" target="_blank" rel="noopener">Facebook</a>
           </div>
 
         </section>
@@ -424,6 +534,50 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+  // Scroll horizontal automatique (pêle-mêle)
+  (function autoScrollMosaic(){
+    const grid = document.querySelector(".mosaic-grid");
+    if (!grid) return;
+
+    let rafId = null;
+    let direction = 1;
+    const SPEED = 0.35; // px par frame (approx. 20px/s @60fps)
+
+    function step(){
+      const maxScroll = grid.scrollWidth - grid.clientWidth;
+      if (maxScroll <= 0) return; // rien à scroller
+
+      grid.scrollLeft += direction * SPEED;
+
+      if (grid.scrollLeft >= maxScroll) direction = -1;
+      else if (grid.scrollLeft <= 0) direction = 1;
+
+      rafId = requestAnimationFrame(step);
+    }
+
+    function start(){
+      if (rafId === null) rafId = requestAnimationFrame(step);
+    }
+
+    function stop(){
+      if (rafId !== null){
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    // Pause quand l’utilisateur interagit, pour garder le contrôle
+    ["mouseenter","focusin","touchstart","wheel","mousedown"].forEach(evt => {
+      grid.addEventListener(evt, stop, { passive: true });
+    });
+    ["mouseleave","focusout","touchend","touchcancel","mouseup"].forEach(evt => {
+      grid.addEventListener(evt, start, { passive: true });
+    });
+
+    start();
+  })();
+  </script>
 
   <!-- Lightbox JS : IMPORTANT -> bien dans un <script> pour ne pas s'afficher comme du texte -->
   <script>
