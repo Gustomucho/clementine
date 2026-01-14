@@ -20,9 +20,9 @@
 
   /* Réglages ruban “zigzag” (fond) */
   --header-h: 78px;         /* hauteur approx du header sticky */
-  --band-top-gap: 18px;     /* distance sous le header */
+  --band-top-gap: 80px;     /* distance sous le header */
   --band-opacity: .92;      /* intensité du beige */
-  --band-thick: 220px;      /* épaisseur de la 1ère bande */
+  --band-thick: 150px;      /* épaisseur de la 1ère bande */
 }
 
 *{ box-sizing: border-box; }

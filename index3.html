@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Clémentine Lénelle — Souvenirs illustrés & souvenirs sonores</title>
-  <meta name="description" content="Gardez une trace de ce qui compte : souvenirs illustrés sur mesure, souvenirs sonores (podcast privé), et graphisme & illustration." />
+  <meta name="description" content="Gardez une trace de vos souvenirs : souvenirs illustrés sur mesure, souvenirs sonores (podcast privé), et graphisme & illustration." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://gustomucho.github.io/clementine/" />
 
   <meta property="og:title" content="Clémentine Lénelle — Souvenirs illustrés & souvenirs sonores" />
-  <meta property="og:description" content="Des souvenirs à regarder, à écouter, à garder près de soi. Une approche douce, sensible, sur mesure." />
+  <meta property="og:description" content="Pour les yeux, pour les oreilles, et pour vos projets. Une approche douce, sensible, sur mesure." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gustomucho.github.io/clementine/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700&family=Raleway:wght@100;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=402" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=401" />
 
   <script type="application/ld+json">
   {
@@ -34,37 +34,12 @@
   }
   </script>
 
-  <!-- Styles locaux à la page : images petites, sous les CTA, responsive -->
+  <!-- Styles locaux à la page : images plus petites, sous les CTA, responsive -->
   <style>
-    .home-page--variant{
-      background: #F4F1EC; /* RAL 9010 */
-    }
-
-    .wave-frame{
-      border: 4px solid transparent;
-      border-radius: 28px;
-      padding: 26px;
-      background: rgba(255,255,255,.9);
-      box-shadow: 0 8px 30px rgba(0,0,0,.08);
-      border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='32' viewBox='0 0 120 32'%3E%3Cpath d='M0 22 C6 12 12 32 18 22 C24 12 30 32 36 22 C42 12 48 32 54 22 C60 12 66 32 72 22 C78 12 84 32 90 22 C96 12 102 32 108 22 C114 12 120 32 126 22' fill='none' stroke='%23B7DAD9' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E") 30 round;
-    }
-
-    .home-page--variant::before{
-      display: none;
-    }
-
-    /* Intro sous le H1 (petite phrase d'accueil) */
-    .home-intro{
-      margin: 0 0 18px 0;
-      font-size: 18px;
-      color: rgba(73,13,11,.70);
-      max-width: 68ch;
-    }
-
-    /* Images sous CTA : petites, alignées, responsives */
+    /* Images sous CTA : petites, centrées, et responsives */
     .card-figure,
     .project-figure{
-      margin: 10px 0 0 0;        /* espace après le bouton */
+      margin: 8px 0 0 0;        /* espace après le bouton */
       width: 100%;
       display: flex;
       justify-content: flex-start;
@@ -78,7 +53,7 @@
       border-radius: 18px;
     }
 
-    /* 2e colonne : un poil plus petite */
+    /* La 2e colonne est souvent plus “fine” : un poil plus petite */
     @media (min-width: 981px){
       .two-col .card:nth-child(2) .card-figure img{
         width: min(172px, 100%);
@@ -93,7 +68,7 @@
       border-radius: 18px;
     }
 
-    /* Sur mobile : centrer les images (plus joli) */
+    /* Sur mobile : réduire un peu et centrer (plus joli) */
     @media (max-width: 980px){
       .card-figure,
       .project-figure{
@@ -111,7 +86,7 @@
   </style>
 </head>
 
-<body class="home-page home-page--variant">
+<body class="home-page">
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <!-- ======================
@@ -152,20 +127,14 @@
     <!-- HERO -->
     <section class="home-hero" aria-label="Accueil">
       <div class="container">
-
         <!-- H1 unique (SEO) -->
-        <h1 class="h1 home-title">Gardez une trace de ce qui compte.</h1>
-
-        <!-- Phrase d'accueil (plus chaleureuse et explicite) -->
-        <p class="home-intro">
-          Des souvenirs à regarder, à écouter, à garder près de soi.
-        </p>
+        <h1 class="h1 home-title" style="color: var(--red);">Gardez une trace de vos souvenirs</h1>
 
         <div class="two-col">
 
           <!-- Colonne 1: yeux -->
-          <article class="card wave-frame">
-            <h2 class="h2">pour les yeux</h2>
+          <article class="card">
+            <h2 class="h2" style="color: var(--red);">pour les yeux</h2>
 
             <p class="lead">
               <span class="yellow-pill-wrap">
@@ -174,42 +143,54 @@
             </p>
 
             <p class="text">
-              Des souvenirs illustrés, dessinés sur mesure.
-              Une rencontre, un lieu, une habitude, un détail qui revient — pour voir une histoire prendre forme
-              et l’avoir près de soi.
+              Les souvenirs illustrés, c’est une rencontre, un lieu, une habitude, un détail qui revient —
+              tout est dessiné sur mesure pour créer une composition unique.
+            </p>
+
+            <p class="text">
+              Un cadeau à offrir ou à garder, pour voir une histoire prendre forme et l’avoir près de soi.
             </p>
 
             <p class="cta">
-              <a class="btn btn-small" href="souvenirs-illustres.html">Découvrir les souvenirs illustrés</a>
+              <a class="btn btn-small" href="souvenirs-illustres.html">Souvenirs illustrés</a>
             </p>
 
             <!-- Image thème 1 (SOUS le CTA) -->
             <figure class="card-figure">
               <img
                 src="assets/img/accueil/accueil-souvenirs-illustres.webp"
-                alt="Souvenir illustré : composition de souvenirs dessinée sur mesure"
+                alt="Illustration de souvenirs : composition dessinée sur mesure"
                 loading="lazy"
                 decoding="async">
             </figure>
           </article>
 
           <!-- Colonne 2: oreilles -->
-          <article class="card wave-frame">
-            <h2 class="h2">pour les oreilles</h2>
+          <article class="card">
+            <h2 class="h2" style="color: var(--red);">pour les oreilles</h2>
 
             <p class="lead">
               <span class="yellow-pill">
-                Une histoire, ou juste une voix, à capturer.
+                Une histoire ou juste une voix à capturer.
               </span>
             </p>
 
             <p class="text">
-              Des souvenirs sonores à enregistrer aujourd’hui, pour pouvoir les écouter demain.
-              Une voix, un récit, un moment de vie à garder.
+              À raconter aujourd’hui, pour pouvoir l’écouter demain, pour soi et pour ceux qu’on aime.
+            </p>
+
+            <p class="text">
+              Les souvenirs sonores permettent d’enregistrer une voix, une histoire, un moment de vie.
+              On parle librement, sans pression, pour garder la voix de ceux qu’on aime ou le souvenir d’une histoire
+              et pouvoir la réécouter plus tard.
+            </p>
+
+            <p class="text">
+              Un souvenir intime à offrir ou à garder, pour aujourd’hui et pour demain.
             </p>
 
             <p class="cta">
-              <a class="btn btn-small" href="souvenirs-sonores.html">Découvrir les souvenirs sonores</a>
+              <a class="btn btn-small" href="souvenirs-sonores.html">Souvenirs sonores</a>
             </p>
 
             <!-- Image thème 2 (SOUS le CTA) -->
@@ -231,9 +212,9 @@
       <div class="container">
         <div class="one-col">
 
-          <div class="project-block wave-frame">
+          <div class="project-block">
             <div>
-              <h2 class="h1 h1-secondary">Donner forme et couleurs à vos projets</h2>
+              <h2 class="h1 h1-secondary">Donnez forme et couleurs à vos projets</h2>
 
               <p class="lead">
                 <span class="yellow-pill-wrap">
@@ -247,12 +228,12 @@
               </p>
 
               <p class="text">
-                Chaque création est pensée sur mesure, afin d’apporter une touche unique, sensible et cohérente
-                à vos projets, qu’ils soient en devenir ou déjà existants.
+                Chaque création est pensée sur mesure afin d’apporter une touche unique, sensible et cohérente
+                à vos projets, en devenir ou déjà existants.
               </p>
 
               <p class="cta">
-                <a class="btn btn-small" href="graphisme-illustrations.html">Voir les projets de graphisme & illustration</a>
+                <a class="btn btn-small" href="graphisme-illustrations.html">Graphisme & illustration</a>
               </p>
 
               <!-- Image thème 3 (SOUS le CTA) -->
