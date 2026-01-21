@@ -35,7 +35,11 @@ body.home-page{
    ========================================================= */
 body{
   margin: 0;
-  background: #f1ece1 url("../img/arriere-plan.png") center top / cover no-repeat;
+  background-color: #f1ece1;
+  background-image: url("../img/arriere-plan.png");
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-size: auto;
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
@@ -737,6 +741,12 @@ a:hover{ text-decoration: underline; }
   margin: 8px 0 26px 0;
 }
 
+/* Ajustements accueil (densité) */
+body.home-page .hero-snap{ padding: 48px 0 18px; }
+body.home-page .hero-subtitle{ margin-top: 10px; }
+body.home-page .hero-subtitle p{ margin: 0 0 10px 0; }
+body.home-page .hero-cta{ margin: 10px 0 0; }
+
 /* Bouton hero un poil plus “présent” */
 .hero-btn{
   border-radius: 999px;
@@ -748,7 +758,7 @@ a:hover{ text-decoration: underline; }
   border-color: rgba(236,66,61,.55);
 }
 
-/* Section services (layout en quinconce) */
+/* Section services (grille 2 colonnes / 3 lignes) */
 .snap-features{
   padding-top: 36px;
 }
@@ -760,62 +770,45 @@ body.home-page .snap-features{
 }
 
 .services-layout-inner{
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
+  display: grid;
+  width: 80vw;
+  margin: 0 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, auto);
+  gap: 36px 48px;
 }
+
+body.home-page .services-layout{ padding: 22px 0 56px; }
+body.home-page .services-layout .snap-h2{ margin: 0 0 8px 0; }
+body.home-page .services-layout .snap-left-text{ margin: 0 0 10px 0; }
+body.home-page .services-layout .snap-mini-ctas{ margin-top: 8px; }
 
 .service-block{
-  max-width: 768px;
+  max-width: none;
+  padding: 0;
 }
 
-.service-block--left{
-  align-self: flex-start;
+.service-sonores{ grid-column: 1; grid-row: 1; }
+.service-podcast{
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
 }
+.service-illustres{ grid-column: 2; grid-row: 2; }
+.service-graphisme{ grid-column: 1; grid-row: 3; }
 
-.service-block--right{
-  align-self: flex-end;
-  text-align: left;
-}
-
-.service-block--with-illustration{
-  position: relative;
-  padding-right: clamp(180px, 24vw, 280px);
-}
-
-/* Illustration Jump positionnée sur la largeur de la section */
-.services-layout{
-  position: relative;
+.service-podcast-embed{
+  width: 100%;
 }
 
 .jump-illustration{
-  position: absolute;
-  right: 6vw;
-  top: 76%;
-  transform: translateY(-50%);
-  width: clamp(140px, 15vw, 210px);
-  height: auto;
-  border-radius: 18px;
-}
-
-/* Bloc souvenirs sonores avec player à droite */
-.service-sonores{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  align-items: start;
-}
-
-.service-sonores-text{
-  max-width: 560px;
-  grid-column: 1 / span 2;
-}
-
-.service-sonores-embed{
-  grid-column: 3 / 4;
+  grid-column: 2;
+  grid-row: 3;
   justify-self: end;
   align-self: center;
-  width: 100%;
+  width: clamp(140px, 16vw, 220px);
+  height: auto;
+  border-radius: 18px;
 }
 
 .snap-h2{
@@ -856,8 +849,13 @@ body.home-page .snap-features{
   }
 
   .services-layout-inner{
-    gap: 36px;
+    width: min(90vw, 100%);
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 32px;
   }
+
+  body.home-page .hero-snap{ padding: 42px 0 16px; }
 
   .snap-h2{
     font-size: 28px;
@@ -880,23 +878,8 @@ body.home-page .snap-features{
   .steps-illustration{
     animation: none;
   }
-  .service-sonores{
-    grid-template-columns: 1fr;
-  }
-  .service-sonores-text{
-    grid-column: auto;
-  }
-  .service-sonores-embed{
-    grid-column: auto;
-  }
   .service-block{
     max-width: 100%;
-  }
-  .service-block--right{
-    align-self: flex-start;
-  }
-  .service-block--with-illustration{
-    padding-right: 0;
   }
   .jump-illustration{
     display: none;
