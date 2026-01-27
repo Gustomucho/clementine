@@ -39,7 +39,7 @@ body{
   background-image: url("../img/arriere-plan.png");
   background-position: center top;
   background-repeat: repeat-y;
-  background-size: auto;
+  background-size: 100% auto;
   color: var(--ink);
   font-family: var(--font-body);
   line-height: 1.6;
