@@ -103,7 +103,7 @@ a:hover{ text-decoration: underline; }
 
 .h1{
   font-weight: 700;
-  font-size: clamp(32px, 3.6vw, 56px);
+  font-size: clamp(80px, 10.4vw, 160px);
   line-height: 1.05;
   color: var(--teal);
   text-shadow: 0 1px 0 rgba(255,255,255,.35);
@@ -111,7 +111,7 @@ a:hover{ text-decoration: underline; }
 
 .h2{
   font-weight: 700;
-  font-size: 28px;
+  font-size: 80px;
   line-height: 1.1;
   color: var(--red);
 }
@@ -730,7 +730,7 @@ a:hover{ text-decoration: underline; }
   font-family: var(--font-title);
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(34px, 4.2vw, 64px);
+  font-size: clamp(80px, 10.4vw, 160px);
   line-height: 1.05;
   color: var(--teal);
   text-shadow: 0 1px 0 rgba(255,255,255,.35);
@@ -826,7 +826,7 @@ body.home-page .services-layout .snap-mini-ctas{ margin-top: 8px; }
   font-family: var(--font-title);
   font-style: italic;
   font-weight: 700;
-  font-size: 34px;
+  font-size: 80px;
   line-height: 1.1;
   color: rgba(73,13,11,.88);
 }
@@ -868,7 +868,7 @@ body.home-page .services-layout .snap-mini-ctas{ margin-top: 8px; }
   body.home-page .hero-snap{ padding: 42px 0 16px; }
 
   .snap-h2{
-    font-size: 28px;
+    font-size: 64px;
   }
 }
 
