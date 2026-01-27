@@ -1,5 +1,5 @@
 # Session 2026-01-27
-Objectif: Mettre en place des ancres de scroll dynamiques pour les sections ciblées.
-Fait: IDs d'ancres ajoutés (souvenirs sonores + comment ca marche), lien "Découvrir" mis à jour, ADR et ticket FIX complétés.
+Objectif: Corriger le layout mobile de la section services et aligner le lecteur audio.
+Fait: Reset des colonnes en mobile, alignement du lecteur audio à gauche, ADR et ticket FIX complétés.
 Blocages: Aucun.
 Next: Validation du diff et exécution du commit par l'humain.
