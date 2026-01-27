@@ -802,7 +802,8 @@ body.home-page .services-layout .snap-mini-ctas{ margin-top: 8px; }
 .service-podcast{
   grid-column: 2;
   grid-row: 1;
-  justify-self: start;
+  justify-self: stretch;
+  align-self: center;
 }
 .service-illustres{ grid-column: 2; grid-row: 2; }
 .service-graphisme{ grid-column: 1; grid-row: 3; }
