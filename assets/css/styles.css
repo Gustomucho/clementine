@@ -814,9 +814,9 @@ body.home-page .services-layout .snap-mini-ctas{ margin-top: 8px; }
 .jump-illustration{
   grid-column: 2;
   grid-row: 3;
-  justify-self: end;
+  justify-self: center;
   align-self: center;
-  width: clamp(140px, 16vw, 220px);
+  width: clamp(170px, 20vw, 250px);
   height: auto;
   border-radius: 18px;
 }

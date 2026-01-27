@@ -3,3 +3,4 @@
 ### Fixed
 - Ajout d'ancres pour le scroll dynamique (souvenirs sonores/illustrés) + lien "Découvrir" mis à jour.
 - Layout mobile en 1 colonne pour la section services + alignement gauche du lecteur audio.
+- Remplacement de l'image "jump" par "ramasser-fleurs" avec centrage et taille ajustée.
