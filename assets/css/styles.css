@@ -792,26 +792,32 @@ body.home-page .snap-features{
 
 .service-illustres{ grid-column: 1; grid-row: 1; }
 .service-sonores{ grid-column: 2; grid-row: 2; }
-.service-podcast{
-  grid-column: 1;
-  grid-row: 2;
-  justify-self: stretch;
-  align-self: center;
-}
 .service-graphisme{ grid-column: 1; grid-row: 3; }
 
 .service-podcast-embed{
   width: 100%;
 }
 
+.carry-illustration,
+.mouton-illustration,
 .jump-illustration{
-  grid-column: 2;
-  grid-row: 3;
   justify-self: center;
   align-self: center;
   width: clamp(170px, 20vw, 250px);
   height: auto;
   border-radius: 18px;
+}
+.carry-illustration{
+  grid-column: 2;
+  grid-row: 1;
+}
+.mouton-illustration{
+  grid-column: 1;
+  grid-row: 2;
+}
+.jump-illustration{
+  grid-column: 2;
+  grid-row: 3;
 }
 
 .snap-h2{
@@ -859,9 +865,10 @@ body.home-page .snap-features{
   }
 
   .service-sonores,
-  .service-podcast,
   .service-illustres,
   .service-graphisme,
+  .carry-illustration,
+  .mouton-illustration,
   .jump-illustration{
     grid-column: auto;
     grid-row: auto;
