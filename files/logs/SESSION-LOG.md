@@ -13,3 +13,8 @@ Objectif: Centrer le bloc audio de la section "Souvenirs sonores" sur index + su
 Fait: Ajustement `.service-podcast` (stretch + center) et validation visuelle.
 Blocages: Aucun.
 Next: Validation du diff et commit par l'humain.
+
+Objectif: Harmoniser espacements et hiérarchie visuelle (FEAT-UI-REFINE-001).
+Fait: Ajustements index/illustres/sonores/graphisme/contact + logo mobile agrandi.
+Blocages: Aucun.
+Next: Validation du diff et commit par l'humain.

@@ -2,6 +2,7 @@
 ## 2026-01-27
 ### Changed
 - Refonte des textes (index, contact, graphisme, souvenirs sonores/illustrés) selon COPY-SOURCE, CTA et emphases conservés.
+- Harmonisation UI (espacements/hiérarchie) sur index, illustres, sonores, graphisme, contact + logo mobile agrandi.
 ### Fixed
 - Centrage du bloc audio "Souvenirs sonores" sur index + suppression de la marge à droite.
 ### Fixed

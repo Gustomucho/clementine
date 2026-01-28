@@ -21,8 +21,8 @@
     .steps{
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin: 18px 0 12px;
+      gap: 14px;
+      margin: 16px 0 10px;
     }
     .step-card{
       border-radius: 18px;
@@ -46,6 +46,7 @@
     .step-card p{
       margin: 0;
       font-size: 15px;
+      line-height: 1.45;
       color: rgba(73,13,11,.85);
     }
 
@@ -145,21 +146,47 @@
             C’est être attentionné. C’est se dire que <strong>ce sera beau à réentendre plus tard, pour soi, pour ses enfants, pour les générations d’après</strong>.
           </p>
 
-          <h2 class="h2" id="comment-ca-marche">Concrètement, comment ça marche&nbsp;?</h2>
-          <div class="steps" aria-label="Étapes pour créer un souvenir sonore">
-            <article class="step-card">
-              <strong>1</strong>
-              <p>On s’appelle pour poser calmement <strong>vos envies, vos questions</strong> et le ton que vous souhaitez donner à cet enregistrement.</p>
-            </article>
-            <article class="step-card">
-              <strong>2</strong>
-              <p>Je viens <strong>enregistrer chez vous</strong>, en toute bienveillance. On discute, on rit, vous parlez librement sans pression pendant le temps qu’il faut.</p>
-            </article>
-            <article class="step-card">
-              <strong>3</strong>
-              <p>Magie, magie ! Après pas mal d’heures de montage, vous recevez <strong>votre podcast perso avec uniquement votre voix</strong>. Une trace douce, fidèle et prête à être réécoutée demain.</p>
-            </article>
+        
+              <section class="steps-visual" aria-label="Étapes pour créer un souvenir sonore">
+	            <!-- ✅ Image à gauche -->
+	            <div class="steps-visual-right" aria-hidden="true">
+	              <img class="steps-illustration" src="assets/img/illustrations-site/Assis-bras-arriere-homme.webp" alt="" loading="lazy" decoding="async">
+	            </div>
+	            <!-- ✅ Étapes à droite (parcours visuel 1 → 2 → 3) -->
+	          <div class="steps-visual-left">
+	              <h2 class="h2" id="comment-ca-marche">Concrètement, comment ça marche&nbsp;?</h2>
+	              <ol class="steps-visual-list">
+                <li class="steps-visual-item">
+                  <div class="steps-visual-marker">
+                    <span class="steps-visual-number">1</span>
+                  </div>
+                  <p class="steps-visual-text">On s’appelle pour poser calmement <strong>vos envies, vos questions</strong> et le ton que vous souhaitez donner à cet enregistrement.</p>
+                </li>
+                <li class="steps-visual-item">
+                  <div class="steps-visual-marker">
+                    <span class="steps-visual-number">2</span>
+                </div>
+                  <p class="steps-visual-text">Je viens <strong>enregistrer chez vous</strong>, en toute bienveillance. On discute, on rit, vous parlez librement sans pression pendant le temps qu’il faut.</p>
+                </li>
+                <li class="steps-visual-item">
+                  <div class="steps-visual-marker">
+                    <span class="steps-visual-number">3</span>
+                  </div>
+                  <p class="steps-visual-text">agie, magie ! Après pas mal d’heures de montage, vous recevez <strong>votre podcast perso avec uniquement votre voix</strong>. Une trace douce, fidèle et prête à être réécoutée demain.</strong>.</p>
+                </li>
+	              </ol>
+	            </div>
+	          </section>
+
+          <div class="cta-row">
+            <a class="btn btn-small" href="contact.html">Créer un souvenir sonore</a>
           </div>
+           <article class="service-block service-podcast">
+          <div class="service-podcast-embed note" style="padding: 0; border: none; background: transparent;">
+            <iframe width="100%" height="280" frameborder="0" scrolling="no" style="width: 100%; height: 280px; overflow: hidden; border-radius: 18px;" src="https://podcasts.radiola.be/@Presence/episodes/le-secret-de-bonne-ma/embed" title="Podcast Le Secret de Bonne-Ma"></iframe>
+          <span class="text" style="font-size:13px; color: rgba(73,13,11,.65);">Mon docu sonore sur ma grand-mère.</span>
+        </div>
+        </article>
 
           <p class="text">
             Ces souvenirs sonores sont souvent offerts à quelqu’un qu’on aime, à sa famille, à ses enfants.
@@ -172,32 +199,7 @@
             Et parce que <strong>certaines histoires, aussi ordinaires soient elles, méritent d’être entendues</strong>, tout simplement.
           </p>
 
-          <div class="cta-row">
-            <a class="btn btn-small" href="contact.html">Créer un souvenir sonore</a>
-            <a class="btn btn-small" href="#" aria-disabled="true" tabindex="-1">Écouter “Le Secret de Bonne-Ma”</a>
-            <span class="text" style="font-size:13px; color: rgba(73,13,11,.65);">mon docu sonore sur ma grand-mère.</span>
-          </div>
-
-          <section class="testimonials" aria-label="Témoignages autour des souvenirs sonores">
-            <h2 class="h2">Ils ont enregistré leurs voix</h2>
-            <div class="testimonial-grid">
-              <article class="testimonial-card">
-                <img class="testimonial-img" src="assets/img/accueil/accueil-souvenirs-sonores.webp" alt="Micro et souvenirs sonores" loading="lazy" decoding="async">
-                <div>
-                  <p class="text testimonial-quote">“Ma grand-mère racontait toujours les mêmes histoires de jeunesse. On a tout enregistré, et on lui a fait écouter le montage au repas de famille. Elle riait en entendant ses propres expressions.”</p>
-                  <p class="testimonial-name">— Élodie, Liège</p>
-                </div>
-              </article>
-
-              <article class="testimonial-card">
-                <img class="testimonial-img" src="assets/img/accueil/accueil-souvenirs-sonores.webp" alt="Souvenir sonore en préparation" loading="lazy" decoding="async">
-                <div>
-                  <p class="text testimonial-quote">“On voulait garder la voix de notre père pour les enfants. Clem’ a su mettre les silences, les respirations et les rires là où il fallait. On a aujourd’hui un podcast privé qu’on écoute dans la voiture.”</p>
-                  <p class="testimonial-name">— Karim &amp; Sarah, Paris</p>
-                </div>
-              </article>
-            </div>
-          </section>
+    
 
         </section>
       </div>
