@@ -750,9 +750,9 @@ body.contact-page .h1{ margin-bottom: 6px; }
 }
 
 /* Ajustements accueil (densité) */
-body.home-page .hero-snap{ padding: 48px 0 18px; }
-body.home-page .hero-overlay{ margin-top: 20px; }
-body.home-page .hero-subtitle{ margin-top: 10px; }
+body.home-page .hero-snap{ padding: 24px 0 18px; }
+body.home-page .hero-overlay{ margin-top: 8px; }
+body.home-page .hero-subtitle{ margin-top: 5px; }
 body.home-page .hero-subtitle p{ margin: 0 0 10px 0; }
 body.home-page .hero-cta{ margin: 10px 0 0; }
 
@@ -787,7 +787,7 @@ body.home-page .snap-features{
   gap: 24px 48px;
 }
 
-body.home-page .services-layout{ padding: 22px 0 56px; }
+body.home-page .services-layout{ padding: 10px 0 56px; }
 body.home-page .services-layout .snap-h2{ margin: 0 0 8px 0; }
 body.home-page .services-layout .snap-left-text{ margin: 0 0 10px 0; }
 body.home-page .services-layout .snap-mini-ctas{ margin-top: 8px; }
