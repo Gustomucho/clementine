@@ -202,15 +202,6 @@ a:hover{ text-decoration: underline; }
   color: rgba(73,13,11,.75);
 }
 
-.illustre-side-img{
-  position: absolute;
-  right: -40px;
-  top: 10px;
-  width: clamp(140px, 16vw, 220px);
-  height: auto;
-  border-radius: 18px;
-}
-
 /* Parcours visuel en 3 étapes (souvenirs illustrés) */
 .steps-visual{
   display: grid;
@@ -732,14 +723,6 @@ body.contact-page .h1{ margin-bottom: 6px; }
   text-align: center;
 }
 
-.hero-kicker{
-  margin: 0 0 10px 0;
-  font-size: 16px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(73,13,11,.55);
-}
-
 .hero-title{
   margin: 0 0 12px 0;
   font-family: var(--font-title);
@@ -931,11 +914,6 @@ body.home-page .services-layout .snap-mini-ctas{ margin-top: 8px; }
   }
   .illustre-content{
     padding-right: 0;
-  }
-  .illustre-side-img{
-    position: static;
-    display: block;
-    margin-top: 12px;
   }
   .illustre-featured-grid{
     grid-template-columns: 1fr;
