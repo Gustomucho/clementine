@@ -14,6 +14,15 @@
   --container: 1120px;
   --shadow: 0 10px 30px rgba(0,0,0,.08);
 
+  /* Spacing scale */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 36px;
+  --space-2xl: 48px;
+
   --font-title: "Clementigre", serif;
   --font-body: "Raleway", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
@@ -401,11 +410,11 @@ a:hover{ text-decoration: underline; }
 }
 
 .text{
-  margin: 0 0 12px 0;
+  margin: 0 0 var(--space-sm) 0;
   color: rgba(73,13,11,.88);
 }
 
-.section{ padding: 28px 0 70px 0; }
+.section{ padding: var(--space-lg) 0 var(--space-2xl) 0; }
 
 /* ======================
    Header (sticky)
@@ -593,14 +602,9 @@ a:hover{ text-decoration: underline; }
 /* ======================
    Pages internes
    ====================== */
-.page-header{ margin-bottom: 26px; }
+.page-header{ margin-bottom: var(--space-lg); }
 .content{ max-width: 760px; }
 
-/* Graphisme : resserrer l’en-tête */
-body.graphisme-page .page-header{ margin-bottom: 16px; }
-body.graphisme-page .h1{ margin-bottom: 6px; }
-body.contact-page .page-header{ margin-bottom: 16px; }
-body.contact-page .h1{ margin-bottom: 6px; }
 
 .illustre-content{
   position: relative;
@@ -608,7 +612,7 @@ body.contact-page .h1{ margin-bottom: 6px; }
   max-width: none;
 }
 .illustre-content .text{
-  margin-bottom: 8px;
+  margin-bottom: var(--space-xs);
   line-height: 1.45;
 }
 
@@ -616,7 +620,7 @@ body.contact-page .h1{ margin-bottom: 6px; }
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin: 18px 0 22px 0;
+  margin: var(--space-md) 0 var(--space-lg) 0;
 }
 
 .note{
@@ -661,7 +665,7 @@ body.contact-page .h1{ margin-bottom: 6px; }
 
 .hero-snap{
   position: relative;
-  padding: 74px 0 80px;
+  padding: var(--space-lg) 0 var(--space-2xl);
   min-height: 100vh;
 }
 
@@ -717,8 +721,8 @@ body.contact-page .h1{ margin-bottom: 6px; }
 
 /* Carte de texte centrée dans le hero */
 .hero-overlay{
-  margin: clamp(40px, 8vh, 120px) auto 0 auto;
-  padding: 26px 28px 24px;
+  margin: var(--space-lg) auto 0 auto;
+  padding: var(--space-lg) var(--space-lg) var(--space-md);
   max-width: min(560px, 92%);
   text-align: center;
 }
@@ -743,18 +747,11 @@ body.contact-page .h1{ margin-bottom: 6px; }
 
 .hero-cta{
   display: inline-flex;
-  gap: 10px;
+  gap: var(--space-xs);
   flex-wrap: wrap;
   justify-content: center;
-  margin: 8px 0 26px 0;
+  margin: var(--space-xs) 0 var(--space-lg) 0;
 }
-
-/* Ajustements accueil (densité) */
-body.home-page .hero-snap{ padding: 24px 0 18px; }
-body.home-page .hero-overlay{ margin-top: 8px; }
-body.home-page .hero-subtitle{ margin-top: 5px; }
-body.home-page .hero-subtitle p{ margin: 0 0 10px 0; }
-body.home-page .hero-cta{ margin: 10px 0 0; }
 
 /* Bouton hero un poil plus “présent” */
 .hero-btn{
@@ -784,13 +781,9 @@ body.home-page .snap-features{
   margin: 0 auto;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(3, auto);
-  gap: 24px 48px;
+  gap: var(--space-lg) var(--space-xl);
 }
 
-body.home-page .services-layout{ padding: 10px 0 56px; }
-body.home-page .services-layout .snap-h2{ margin: 0 0 8px 0; }
-body.home-page .services-layout .snap-left-text{ margin: 0 0 10px 0; }
-body.home-page .services-layout .snap-mini-ctas{ margin-top: 8px; }
 
 .service-block{
   max-width: none;

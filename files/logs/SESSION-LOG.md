@@ -18,3 +18,8 @@ Objectif: Harmoniser espacements et hiérarchie visuelle (FEAT-UI-REFINE-001).
 Fait: Ajustements index/illustres/sonores/graphisme/contact + logo mobile agrandi.
 Blocages: Aucun.
 Next: Validation du diff et commit par l'humain.
+
+Objectif: Uniformiser les marges globales (UI-SPACING-001).
+Fait: Échelle de spacing ajoutée et appliquée, exceptions supprimées.
+Blocages: Aucun.
+Next: Validation du diff et commit par l'humain.
