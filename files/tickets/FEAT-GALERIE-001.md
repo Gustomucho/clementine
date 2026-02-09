@@ -37,6 +37,7 @@ Obtenir une galerie éditoriale 2026 : ratios assumés (portrait reste portrait,
 - ❌ Ne pas déplacer les styles vers le CSS global
 - ✅ Garder la lightbox fonctionnelle
 - ✅ Garder les images existantes
+- ✅ Prévoir et coder un rendu spécifique pour smartphone
 - ✅ Rester léger (pas de lib externe)
 
 ---
@@ -69,6 +70,7 @@ Obtenir une galerie éditoriale 2026 : ratios assumés (portrait reste portrait,
 - [ ] La galerie a un rendu masonry avec respiration
 - [ ] Certaines images peuvent apparaître en plein bord
 - [ ] Le rendu est correct sur desktop et mobile
+- [ ] Une version smartphone dédiée est définie et validée
 - [ ] La lightbox fonctionne toujours
 - [ ] Test visuel reproductible
 
