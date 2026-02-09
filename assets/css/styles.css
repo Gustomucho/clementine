@@ -126,7 +126,7 @@ a:hover{ text-decoration: underline; }
 }
 
 .lead{
-  font-weight: 100;
+  font-weight: 300;
   font-size: 20px;
   color: rgba(73,13,11,.75);
   margin: 0 0 16px 0;
@@ -156,7 +156,6 @@ a:hover{ text-decoration: underline; }
   height: auto;
   display: block;
   border-radius: 18px;
-  background: #fff;
 }
 
 .illustre-more{
@@ -616,6 +615,11 @@ a:hover{ text-decoration: underline; }
   line-height: 1.45;
 }
 
+.sonores-content{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
 .cta-row{
   display: flex;
   gap: 12px;
@@ -798,6 +802,12 @@ body.home-page .snap-features{
   width: 100%;
 }
 
+.service-podcast-embed .text{
+  display: block;
+  margin-top: 3px;
+}
+
+
 .carry-illustration,
 .mouton-illustration,
 .jump-illustration{
@@ -919,3 +929,4 @@ body.home-page .snap-features{
     grid-template-columns: 1fr;
   }
 }
+.social-icon { width: 20px; height: 20px; display: block; }

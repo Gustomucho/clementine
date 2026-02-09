@@ -8,6 +8,16 @@
 
 ---
 
+## MODE FAST (optionnel)
+	•	Activation si l’utilisateur écrit “FAST” en début de message.
+	•	En FAST :
+	1.	Validation demandée toutes les 3 actions ou 20 minutes, pas à chaque action.
+	2.	Format de sortie court : Ref / Action / Test / Next.
+	3.	Pas de re-contextualisation : “cf. ticket”.
+	4.	Logs + changelog uniquement en fin de ticket.
+	5.	ADR uniquement si impact architecture / schéma DB / API publique / sécurité.
+	6.	Tickets en format MICRO par défaut.
+
 ## Structure du repo (source de vérité)
 - Tickets : `files/tickets/`
   - Template : `files/tickets/TEMPLATE.md`
