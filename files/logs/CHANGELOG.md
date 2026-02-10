@@ -1,4 +1,8 @@
 # Changelog
+## 2026-02-10
+### Changed
+- Background global unique appliqué via `body` et suppression des fonds locaux sur les sections concernées.
+
 ## 2026-01-27
 ### Changed
 - Refonte des textes (index, contact, graphisme, souvenirs sonores/illustrés) selon COPY-SOURCE, CTA et emphases conservés.

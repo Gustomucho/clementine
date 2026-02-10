@@ -1,3 +1,9 @@
+# Session 2026-02-10
+Objectif: Uniformiser le background du site (FEAT-BACKGROUND-001).
+Fait: Background global sur `body` conservé et suppression des fonds de sections dans pages ciblées.
+Blocages: Aucun.
+Next: Validation du diff et commit par l'humain.
+
 # Session 2026-01-27
 Objectif: Remplacer l'image "jump" par "ramasser-fleurs", centrée et ajustée en taille.
 Fait: Image remplacée dans index.html, centrage + taille ajustés via CSS, ticket FIX clôturé.

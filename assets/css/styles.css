@@ -280,7 +280,7 @@ a:hover{ text-decoration: underline; }
 }
 
 .steps-illustration{
-  width: clamp(150px, 16vw, 220px);
+  width: clamp(180px, 18vw, 250px);
   height: auto;
   animation: stepsFloat 6s ease-in-out infinite;
 }
@@ -669,6 +669,8 @@ a:hover{ text-decoration: underline; }
 
 .hero-snap{
   position: relative;
+  display: flex;
+  align-items: center;
   padding: 12px 0 var(--space-2xl);
   min-height: 100vh;
 }
@@ -725,7 +727,7 @@ a:hover{ text-decoration: underline; }
 
 /* Carte de texte centrée dans le hero */
 .hero-overlay{
-  margin: 4px auto 0 auto;
+  margin: 0 auto;
   padding: 12px var(--space-lg) var(--space-md);
   max-width: min(560px, 92%);
   text-align: center;
@@ -867,7 +869,7 @@ body.home-page .snap-features{
   }
 
   .hero-overlay{
-    margin: 12px auto 0 auto;
+    margin: 0 auto;
     padding: 11px 22px 20px;
   }
 
